@@ -1,7 +1,7 @@
 import Logo from "../../../assets/logo.webp";
 import { Button } from "../../../components/Button";
 import { Link } from "react-router-dom";
-import { AppRoutes } from "../../../contants/AppRoutes";
+import { AppRoutes } from "../../../constants/AppRoutes";
 
 export function Header() {
   return (
@@ -12,7 +12,9 @@ export function Header() {
         </Link>
 
         <div className="flex gap-4">
-          <Button variant="outlined">Entrar</Button>
+          <Link to={AppRoutes.LOGIN}>
+            <Button variant="outlined">Entrar</Button>
+          </Link>
           <Button>Criar Conta</Button>
         </div>
       </div>

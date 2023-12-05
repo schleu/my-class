@@ -1,21 +1,34 @@
 import { ButtonHTMLAttributes, ReactNode } from "react";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   variant?: "filled" | "outlined";
+  isLoading?: boolean;
 }
 
-export function Button({ children, variant = "filled", ...props }: Props) {
+export function Button({
+  children,
+  variant = "filled",
+  isLoading = false,
+  ...props
+}: Props) {
   return (
     <button
-      className={`px-4 py-2 font-bold rounded-lg ${
+      {...props}
+      className={`px-4 py-2 font-bold rounded-lg flex justify-center items-center text-lg ${
         variant === "filled"
           ? "bg-primary hover:brightness-105 text-light-100"
           : "hover:text-primary hover:brightness-110"
-      }`}
-      {...props}
+      }
+      ${props.className}
+      `}
     >
-      {children}
+      {isLoading ? (
+        <AiOutlineLoading3Quarters size={28} className="animate-spin" />
+      ) : (
+        children
+      )}
     </button>
   );
 }

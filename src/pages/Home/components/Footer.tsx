@@ -1,8 +1,9 @@
 import { ReactNode } from "react";
-import { useCompany } from "../../../hooks/useCompany";
+
 import { FaLink } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
+import { useCompany } from "../../../hooks/useCompany";
 
 export function Footer() {
   const { name, logoUrl } = useCompany();
@@ -10,8 +11,8 @@ export function Footer() {
   return (
     <footer className="w-full flex justify-center border-light-200/50 border-t">
       <div className="w-full max-w-screen-cut flex flex-col px-4 md:px-6">
-        <div className="w-full flex justify-between pt-20 pb-10">
-          <div>
+        <div className="w-full flex flex-wrap  justify-between pt-20 pb-10">
+          <div className="order-1 md:order-0">
             <div className="max-w-[200px]">
               <img src={logoUrl} alt="" className="w-full" />
             </div>
@@ -19,7 +20,8 @@ export function Footer() {
               @{format(new Date(), "yyyy")} - {name}. Todos Direitos Reservador
             </p>
           </div>
-          <div className="flex gap-10 -translate-y-5">
+
+          <div className="flex order-0 md:order-1 gap-10 -translate-y-5 flex-wrap">
             <div className="flex flex-col">
               <h1 className="text-xl font-bold text-primary">Conteúdo</h1>
               <Item>

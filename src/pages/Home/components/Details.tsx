@@ -21,9 +21,9 @@ export function Details() {
     },
     {
       icon: <FaPlayCircle size={60} />,
-      title: "Cypress e mais",
+      title: "React e mais",
       description:
-        "Aprenda sobre automação para a web, api, integração contínua com tecnologias atuais",
+        "Aprenda sobre spa, api, integração contínua com tecnologias atuais",
     },
     {
       icon: <FaPlayCircle size={60} />,
@@ -41,13 +41,13 @@ export function Details() {
       icon: <FaHeart size={60} />,
       title: "Comunidade",
       description:
-        "Aprenda, compartilhe experiências e faça conexões com a comunidade de alunos do Agilizei",
+        "Aprenda, compartilhe experiências e faça conexões com a comunidade de alunos",
     },
   ];
 
   return (
     <div className="w-full flex justify-center">
-      <div className="w-full max-w-screen-cut flex flex-wrap justify-center gap-10 py-10">
+      <div className="w-full max-w-screen-cut flex flex-wrap justify-center gap-10 py-10 px-4 md:px-6">
         {data.map((item) => (
           <div
             key={item.title}
