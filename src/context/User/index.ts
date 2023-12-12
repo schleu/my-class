@@ -12,6 +12,7 @@ export interface iLocation {
 }
 
 export interface iUser {
+  id: string;
   fullName: string;
   firstName: string;
   lastName: string;
@@ -35,6 +36,7 @@ interface Props {
 
 export const UserContext = createContext<Props>({
   user: {
+    id: "",
     fullName: "",
     firstName: "",
     lastName: "",

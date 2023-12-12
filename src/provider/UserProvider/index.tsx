@@ -12,7 +12,7 @@ interface iData {
 }
 
 export function UserProvider({ children }: { children: ReactNode }) {
-  const { setLS, getLS } = useLocalStorage();
+  const { setLS, getLS, removeLS } = useLocalStorage();
 
   const auth: iData | null = getLS(LocalStorageKeys.AUTH);
 
@@ -32,7 +32,7 @@ export function UserProvider({ children }: { children: ReactNode }) {
   }, [auth, data, setLS]);
 
   async function makeLogin(email: string, senha: string) {
-    console.log(email, senha);
+    console.log("makeLogin", email, senha);
     const res = await getLogin();
 
     const user: iUser = UserMoked;
@@ -48,7 +48,7 @@ export function UserProvider({ children }: { children: ReactNode }) {
 
   function logoff() {
     setData(null);
-    console.log("danilo");
+    removeLS(LocalStorageKeys.AUTH);
     location.href = AppRoutes.HOME;
   }
 
