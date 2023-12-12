@@ -1,14 +1,13 @@
 import { BrowserRouter } from "react-router-dom";
 import { Router } from "./router";
-import { UserProvider } from "./provider/UserProvider";
+import { PrivateRouter } from "./router/PrivateRouter";
 
 function App() {
   return (
-    <UserProvider>
-      <BrowserRouter>
-        <Router />
-      </BrowserRouter>
-    </UserProvider>
+    <BrowserRouter>
+      <Router />
+      <PrivateRouter />
+    </BrowserRouter>
   );
 }
 

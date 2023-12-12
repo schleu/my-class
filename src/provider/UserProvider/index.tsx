@@ -1,35 +1,41 @@
-import { ReactNode, useState, useEffect } from "react";
-import { UserContext } from "../../context/User";
-import { getLogin } from "../../services/Login";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
+import { ReactNode, useEffect, useState } from "react";
 import { LocalStorageKeys } from "../../constants/LocalstorageKeys";
+import { UserContext, iAuth, iUser } from "../../context/User";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
+import { getLogin } from "../../services/Login";
+import { AppRoutes } from "../../constants/AppRoutes";
+import { UserMoked } from "../../moked/user";
+
+interface iData {
+  user: iUser;
+  auth: iAuth;
+}
 
 export function UserProvider({ children }: { children: ReactNode }) {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [data, setData] = useState({
-    user: {
-      name: "",
-    },
-    auth: {
-      token: "",
-      refreshToken: "",
-    },
-  });
+  const { setLS, getLS } = useLocalStorage();
 
-  const { setLS } = useLocalStorage();
+  const auth: iData | null = getLS(LocalStorageKeys.AUTH);
+
+  const [data, setData] = useState<iData | null>(auth);
 
   useEffect(() => {
-    setLS(LocalStorageKeys.AUTH, data);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data]);
+    if (data === null) {
+      if (auth !== null) {
+        setData(auth);
+      } else {
+        console.error("User not logged");
+        // location.href = AppRoutes.HOME;
+      }
+    } else {
+      setLS(LocalStorageKeys.AUTH, data);
+    }
+  }, [auth, data, setLS]);
 
   async function makeLogin(email: string, senha: string) {
     console.log(email, senha);
     const res = await getLogin();
 
-    const user = {
-      name: "Jonh Doe",
-    };
+    const user: iUser = UserMoked;
 
     setData({
       user,
@@ -40,8 +46,14 @@ export function UserProvider({ children }: { children: ReactNode }) {
     });
   }
 
+  function logoff() {
+    setData(null);
+    console.log("danilo");
+    location.href = AppRoutes.HOME;
+  }
+
   return (
-    <UserContext.Provider value={{ ...data, makeLogin }}>
+    <UserContext.Provider value={{ ...data, makeLogin, logoff }}>
       {children}
     </UserContext.Provider>
   );

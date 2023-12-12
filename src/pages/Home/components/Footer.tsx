@@ -17,7 +17,7 @@ export function Footer() {
               <img src={logoUrl} alt="" className="w-full" />
             </div>
             <p className="border-b border-light-200/40">
-              @{format(new Date(), "yyyy")} - {name}. Todos Direitos Reservador
+              @{format(new Date(), "yyyy")} - {name}. Todos Direitos Reservados
             </p>
           </div>
 

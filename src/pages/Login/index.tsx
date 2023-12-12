@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../../components/Button";
 import { Text } from "../../components/Input";
@@ -5,7 +6,6 @@ import { Password } from "../../components/Input/password";
 import { AppRoutes } from "../../constants/AppRoutes";
 import { useCompany } from "../../hooks/useCompany";
 import { useLogin } from "../../hooks/useLogin";
-import { useState } from "react";
 
 export function LoginPage() {
   const { logoUrl } = useCompany();
