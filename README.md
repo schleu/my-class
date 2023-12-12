@@ -1,30 +1,81 @@
-# React + TypeScript + Vite
+# My Class
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![https://myclass-danilo-schleu.netlify.app/](public/image.png)](<https://myclass-danilo-schleu.netlify.app/>)
+[Clique na imagem para acessar o sistema](<https://myclass-danilo-schleu.netlify.app/>)
 
-Currently, two official plugins are available:
+## Objetivo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+O objetivo deste projeto é desenvolver um sistema de aula online sob demanda que permita aos professores disponibilizarem aulas de forma mais eficiente e interativa, e aos alunos aprender de forma mais eficaz.
 
-## Expanding the ESLint configuration
+## Implementações
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- [x] Landing Page
+- [x] Login Page
+- [x] Dashboard Page [básica]
+- [x] Perfil Page
+- [x] Meus Cursos Page
+- [x] Visualizar aula
+- [ ] Descrição das aulas
+- [ ] Editar dados perfil [salvar no localstorage]
+- [ ] DarkMode
+- [ ] Multi idiomas [i18n]
+- [ ] Area do professor
 
-- Configure the top-level `parserOptions` property like this:
+## Tecnologias utilizadas
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+- Linguagem de programação: TypeScript
+- Framework web: React
+- Framework css: Tailwind
+- Compilador: Vite
+
+## Instalação
+
+> Para instalar o sistema, siga estas etapas:
+
+- Clone o repositório:
+
+```git
+  git clone https://github.com/schleu/my-class
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Instale as dependências:
+
+```cmd
+cd my-class
+yarn install
+```
+
+## Execução
+
+> Para executar o sistema, execute o seguinte comando:
+
+```cmd
+yarn run start
+```
+
+O sistema será executado no endereço <http://localhost:5173>.
+
+## Contribuições
+
+Contribuições são bem-vindas. Para contribuir, siga estas etapas
+
+1. Faça um fork do repositório.
+2. Crie uma branch para sua contribuição.
+3. Faça as alterações necessárias.
+4. Faça o commit das alterações.
+5. Envie um pull request.
+
+## Licença
+
+O sistema é licenciado sob a licença MIT.
+
+## Mudanças no projeto sem banco de dados
+
+- Os dados são armazenados em memória.
+- Os dados são inicializados quando o sistema é iniciado.
+
+```js
+  src\moked
+    courses.ts
+    user.ts
+```
