@@ -2,16 +2,30 @@ import { Link } from "react-router-dom";
 import { AppRoutes } from "../../constants/AppRoutes";
 
 interface Props {
-  id: string;
   image: string;
   title: string;
   description: string;
   progress: number;
+  courseSlug: string;
+  moduleSlug: string;
+  classSlug: string;
 }
 
-export function CourseCard({ id, image, title, description, progress }: Props) {
+export function CourseCard({
+  image,
+  title,
+  description,
+  progress,
+  classSlug,
+  courseSlug,
+  moduleSlug,
+}: Props) {
   return (
-    <Link to={AppRoutes.CLASS_COURSE.replace(":id", id)}>
+    <Link
+      to={AppRoutes.CLASS_COURSE.replace(":courseSlug", courseSlug)
+        .replace(":moduleSlug", moduleSlug)
+        .replace(":classSlug", classSlug)}
+    >
       <div className="max-w-[300px] overflow-hidden shadow-xl rounded-xl border hover:border-primary bg-white">
         <div className="w-full h-[200px]">
           <img loading="lazy" src={image} alt="" className="" />

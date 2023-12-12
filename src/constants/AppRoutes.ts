@@ -5,6 +5,6 @@ export enum AppRoutes {
   CLASS_DASHBOARD = "/class/dashboard",
   CLASS_PROFILE = "/class/profile",
   CLASS_COURSES = "/class/courses",
-  CLASS_COURSE = "/class/course/:id",
+  CLASS_COURSE = "/class/course/:courseSlug/:moduleSlug/:classSlug",
   LOGOFF = "/class/logoff",
 }
