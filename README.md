@@ -20,6 +20,9 @@ O objetivo deste projeto é desenvolver um sistema de aula online sob demanda qu
 - [ ] DarkMode
 - [ ] Multi idiomas [i18n]
 - [ ] Area do professor
+- [ ] Area do Certificado
+- [ ] Gerador de certificado
+- [ ] Validador de certificado
 
 ## Tecnologias utilizadas
 

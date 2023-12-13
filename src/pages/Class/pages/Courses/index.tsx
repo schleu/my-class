@@ -1,12 +1,12 @@
-import { CourseCard } from "../../../components/CourseCard";
-import { Section } from "../../../components/Section";
-import { createSlug } from "../../../hooks/useSlug";
-import { myCourses } from "../../../moked/courses";
+import { CourseCard } from "../../../../components/CourseCard";
+import { Section } from "../../../../components/Section";
+import { createSlug } from "../../../../hooks/useSlug";
+import { myCourses } from "../../../../moked/courses";
 
 export function CoursesPage() {
   return (
     <Section title="Meus cursos">
-      <div className="w-full flex gap-4">
+      <div className="w-full flex flex-wrap gap-4">
         {myCourses.map((e) => (
           <CourseCard
             key={e.id}

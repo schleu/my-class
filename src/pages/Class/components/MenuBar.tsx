@@ -7,7 +7,7 @@ import { useLogin } from "../../../hooks/useLogin";
 export function MenuBar() {
   const { user } = useLogin();
   return (
-    <div className="w-full h-20 flex justify-center fixed z-50 shadow-xl bg-light-100">
+    <div className="w-full h-20 flex justify-center fixed z-50 shadow-xl bg-light-100 font-Poppins ">
       <div className="max-w-screen-cut w-full h-full   flex justify-between items-center px-4 md:px-6">
         <Link to={AppRoutes.CLASS_DASHBOARD} className="h-full ">
           <img src={Logo} className="h-full py-4" />

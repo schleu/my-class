@@ -11,7 +11,9 @@ export function ClassPage() {
     <UserProvider>
       <MenuBar />
       <AsideBar hide={hide} toogleHide={() => setHide((e) => !e)} />
-      <div className={`transition pt-20 ${hide ? "pl-20" : "pl-72"}`}>
+      <div
+        className={`font-Poppins transition pt-20 ${hide ? "pl-20" : "pl-72"}`}
+      >
         <Outlet />
       </div>
     </UserProvider>

@@ -1,5 +1,7 @@
 import { FaChevronLeft, FaHome, FaRegUser } from "react-icons/fa";
 import { RiLogoutBoxLine, RiMovieLine } from "react-icons/ri";
+import { LiaCertificateSolid } from "react-icons/lia";
+
 import { AppRoutes } from "../../../constants/AppRoutes";
 import { MenuOption } from "./MenuOption";
 
@@ -13,6 +15,11 @@ const optionsMenu = [
     text: "Cursos",
     Icon: RiMovieLine,
     link: AppRoutes.CLASS_COURSES,
+  },
+  {
+    text: "Certificado",
+    Icon: LiaCertificateSolid,
+    link: AppRoutes.CLASS_CERTIFICATE,
   },
   {
     text: "Perfil",
@@ -29,7 +36,7 @@ interface Props {
 export function AsideBar({ hide, toogleHide }: Props) {
   return (
     <div
-      className={`fixed top-0 z-40 pt-24 transition max-h-screen h-full bg-light-100 shadow-xl flex flex-col  ${
+      className={`fixed top-0 z-40 pt-24 transition max-h-screen h-full bg-light-100 shadow-xl flex flex-col font-Poppins  ${
         hide ? "w-20" : "w-72"
       }`}
     >

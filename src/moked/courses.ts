@@ -1,7 +1,7 @@
 export interface iLesson {
   id: string;
   title: string;
-  slug?: string;
+  slug: string;
   thumb: string;
   moduleId: string;
   urlVideo: string;
@@ -11,6 +11,7 @@ export interface iModule {
   id: string;
   name: string;
   slug?: string;
+  description?: string;
   lessons: iLesson[];
   courseId: string;
 }
@@ -38,6 +39,8 @@ export const courses: iCourse[] = [
         courseId: "90d200a5-47fa-4a16-821f-e749e1cc11f4",
         name: "Nivel 1",
         slug: "nivel-1",
+        description:
+          "Duis et velit aliqua commodo duis velit aliquip officia cillum consequat aute ipsum eu cupidatat. Sit deserunt adipisicing eu minim pariatur ullamco proident et do elit. Do mollit nisi exercitation exercitation ipsum do ipsum ex ea. In fugiat sit excepteur eu occaecat laboris cillum qui et in aliqua irure et occaecat.",
         lessons: [
           {
             id: "f3d84b0f-6667-4025-afdf-e00edd7e5d78",
@@ -135,6 +138,8 @@ export const courses: iCourse[] = [
         id: "afa4b1dd-2005-496b-b74b-f116cdab38a9",
         courseId: "90d200a5-47fa-4a16-821f-e749e1cc11f4",
         name: "Nivel 2",
+        description: `Aute eiusmod labore ea mollit esse reprehenderit aute dolor. Consequat reprehenderit aliquip officia commodo eiusmod dolor ad sit. Sint velit ullamco non laborum officia culpa sint laborum proident dolor. Consectetur nisi fugiat sunt do occaecat exercitation.
+Ullamco velit labore ex mollit consequat amet anim occaecat id exercitation veniam tempor irure nostrud. Do dolore tempor enim sint deserunt anim laboris adipisicing id aute. Eiusmod fugiat magna enim laborum veniam ullamco laborum magna incididunt commodo in elit irure.`,
         lessons: [
           {
             id: "0a455c18-d54d-4c9c-9c09-86a85dfbdb4e",
@@ -401,6 +406,7 @@ export const courses: iCourse[] = [
             urlVideo: "893558308",
             thumb: "https://picsum.photos/300/200/?blur",
             title: "Criando um projeto em Node.js",
+            slug: "criando-um-projeto-em-nodejs",
           },
         ],
       },
@@ -416,8 +422,8 @@ export const courses: iCourse[] = [
     modules: [
       {
         id: "5a056512-5440-4944-a65e-2ee82bfe452b",
-        name: "",
-        slug: "",
+        name: "Conceito",
+        slug: "conceito",
         courseId: "871c241f-8543-49a5-be5b-b5f773ad316c",
         lessons: [
           {
@@ -425,7 +431,8 @@ export const courses: iCourse[] = [
             moduleId: "a4affde1-8765-4f4b-bbb9-ebae6835d736",
             urlVideo: "893558308",
             thumb: "https://picsum.photos/300/200/?blur",
-            title: "Criando um projeto em Node.js",
+            title: "Criando um projeto",
+            slug: "criando-um-projeto",
           },
         ],
       },
@@ -441,8 +448,8 @@ export const courses: iCourse[] = [
     modules: [
       {
         id: "5a056512-5440-4944-a65e-2ee82bfe452b",
-        name: "",
-        slug: "",
+        name: "Conceito",
+        slug: "conceito",
         courseId: "871c241f-8543-49a5-be5b-b5f773ad316c",
         lessons: [
           {
@@ -450,7 +457,86 @@ export const courses: iCourse[] = [
             moduleId: "a4affde1-8765-4f4b-bbb9-ebae6835d736",
             urlVideo: "893558308",
             thumb: "https://picsum.photos/300/200/?blur",
-            title: "Criando um projeto em Node.js",
+            title: "Criando um projeto",
+            slug: "criando-um-projeto",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "d7765e5e-77b9-4b81-971a-1a1f37309ad4",
+    name: "Javascript",
+    slug: "javascript",
+    description:
+      "Esse adipisicing eu proident anim magna irure ut eu nisi aliqua et Lorem.",
+    thumbnail: "https://picsum.photos/300/200/?blur",
+    modules: [
+      {
+        id: "5a056512-5440-4944-a65e-2ee82bfe452b",
+        name: "Conceito",
+        slug: "conceito",
+        courseId: "871c241f-8543-49a5-be5b-b5f773ad316c",
+        lessons: [
+          {
+            id: "b39630fa-137d-4e71-b80c-d7e3cf651ee4",
+            moduleId: "a4affde1-8765-4f4b-bbb9-ebae6835d736",
+            urlVideo: "893558308",
+            thumb: "https://picsum.photos/300/200/?blur",
+            title: "Criando um projeto",
+            slug: "criando-um-projeto",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "27b2b49e-4dee-4648-8c72-0f3c2bbfbb7a",
+    name: "HTML 5",
+    slug: "html-5",
+    description:
+      "Esse adipisicing eu proident anim magna irure ut eu nisi aliqua et Lorem.",
+    thumbnail: "https://picsum.photos/300/200/?blur",
+    modules: [
+      {
+        id: "d025a0db-2318-40e3-a60d-3d35bf179264",
+        name: "Conceito",
+        slug: "conceito",
+        courseId: "871c241f-8543-49a5-be5b-b5f773ad316c",
+        lessons: [
+          {
+            id: "b39630fa-137d-4e71-b80c-d7e3cf651ee4",
+            moduleId: "a4affde1-8765-4f4b-bbb9-ebae6835d736",
+            urlVideo: "893558308",
+            thumb: "https://picsum.photos/300/200/?blur",
+            title: "Criando um projeto",
+            slug: "criando-um-projeto",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "61cae943-f102-4ec3-b3c3-89942279afa3",
+    name: "CSS 3",
+    slug: "css-5",
+    description:
+      "Esse adipisicing eu proident anim magna irure ut eu nisi aliqua et Lorem.",
+    thumbnail: "https://picsum.photos/300/200/?blur",
+    modules: [
+      {
+        id: "d025a0db-2318-40e3-a60d-3d35bf179264",
+        name: "Conceito",
+        slug: "conceito",
+        courseId: "871c241f-8543-49a5-be5b-b5f773ad316c",
+        lessons: [
+          {
+            id: "b39630fa-137d-4e71-b80c-d7e3cf651ee4",
+            moduleId: "a4affde1-8765-4f4b-bbb9-ebae6835d736",
+            urlVideo: "893558308",
+            thumb: "https://picsum.photos/300/200/?blur",
+            title: "Criando um projeto",
+            slug: "criando-um-projeto",
           },
         ],
       },
@@ -458,7 +544,7 @@ export const courses: iCourse[] = [
   },
 ];
 
-interface iMyCourse extends iCourse {
+export interface iMyCourse extends iCourse {
   progress: number;
 }
 
@@ -470,6 +556,22 @@ export const myCourses: iMyCourse[] = [
   {
     ...courses[1],
     progress: Math.round(Math.random() * 99),
+  },
+  {
+    ...courses[courses.length - 4],
+    progress: 0,
+  },
+  {
+    ...courses[courses.length - 3],
+    progress: 94,
+  },
+  {
+    ...courses[courses.length - 2],
+    progress: 95,
+  },
+  {
+    ...courses[courses.length - 1],
+    progress: 100,
   },
 ];
 

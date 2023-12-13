@@ -34,6 +34,7 @@ module.exports = {
         },
         fontFamily: {
           Poppins: ["Poppins", "sans-serif"],
+          Whisper: ["Whisper", "sans-serif"],
         },
         animation:{},
         keyframes:{}

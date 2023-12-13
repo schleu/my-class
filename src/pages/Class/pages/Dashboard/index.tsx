@@ -2,8 +2,8 @@ import * as echarts from "echarts";
 import { useEffect } from "react";
 
 import { useRef } from "react";
-import { Section } from "../../../components/Section";
-import { courseStatistic } from "../../../moked/courses";
+import { Section } from "../../../../components/Section";
+import { courseStatistic } from "../../../../moked/courses";
 
 export function DashboardPage() {
   const ref = useRef<HTMLDivElement>(null);

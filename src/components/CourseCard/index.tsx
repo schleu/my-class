@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
+import { LiaCertificateSolid } from "react-icons/lia";
+import { Link, useNavigate } from "react-router-dom";
 import { AppRoutes } from "../../constants/AppRoutes";
-
 interface Props {
   image: string;
   title: string;
@@ -20,6 +20,11 @@ export function CourseCard({
   courseSlug,
   moduleSlug,
 }: Props) {
+  const navigate = useNavigate();
+  function generateCertificate() {
+    navigate(AppRoutes.CLASS_CERTIFICATE);
+  }
+
   return (
     <Link
       to={AppRoutes.CLASS_COURSE.replace(":courseSlug", courseSlug)
@@ -34,6 +39,19 @@ export function CourseCard({
         <div className="px-2 py-4">
           <h1 className="text-2xl font-bold">{title}</h1>
           <p className="text-sm">{description}</p>
+          <div className="h-10 flex items-center  hover:text-primary">
+            {progress >= 95 ? (
+              <div
+                className="flex items-center gap-2 text-sm font-bold"
+                onClick={generateCertificate}
+              >
+                <LiaCertificateSolid size={24} />
+                Certificado
+              </div>
+            ) : (
+              <></>
+            )}
+          </div>
           <div
             className={`w-full bg-light-200 rounded-sm overflow-hidden mt-3 opacity-60 text-light-100 font-bold relative`}
           >

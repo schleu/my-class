@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { AppRoutes } from "../../../constants/AppRoutes";
+import { AppRoutes } from "../../../../constants/AppRoutes";
 import { FaPlay } from "react-icons/fa";
-import { iLesson, iModule, courses, iCourse } from "../../../moked/courses";
-import { Title } from "../../../components/Title";
+import { iLesson, iModule, courses, iCourse } from "../../../../moked/courses";
+import { Title } from "../../../../components/Title";
 
 export function CoursesPage() {
   function Lesson({ data }: { data: iLesson }) {

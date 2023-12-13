@@ -2,11 +2,11 @@ import { useFormik } from "formik";
 import { z } from "zod";
 import { toFormikValidationSchema } from "zod-formik-adapter";
 
-import { Text } from "../../../components/Input";
-import { Section } from "../../../components/Section";
+import { Text } from "../../../../components/Input";
+import { Section } from "../../../../components/Section";
 import { ModalProfile } from "./Modal";
-import { Button } from "../../../components/Button";
-import { useLogin } from "../../../hooks/useLogin";
+import { Button } from "../../../../components/Button";
+import { useLogin } from "../../../../hooks/useLogin";
 
 export function ProfilePage() {
   const { user } = useLogin();
