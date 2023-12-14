@@ -1,6 +1,5 @@
 import { CourseCard } from "../../../../components/CourseCard";
 import { Section } from "../../../../components/Section";
-import { createSlug } from "../../../../hooks/useSlug";
 import { myCourses } from "../../../../moked/courses";
 
 export function CoursesPage() {
@@ -15,8 +14,8 @@ export function CoursesPage() {
             description="Esse adipisicing eu proident anim magna irure ut eu nisi aliqua et Lorem."
             progress={e.progress}
             courseSlug={e.slug}
-            moduleSlug={createSlug(e.modules[0].name)}
-            classSlug={createSlug(e.modules[0].lessons[0].title)}
+            moduleSlug={e.modules[0].slug}
+            lessonSlug={e.modules[0].lessons[0].slug}
           />
         ))}
       </div>

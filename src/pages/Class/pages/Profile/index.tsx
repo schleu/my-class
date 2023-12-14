@@ -55,7 +55,7 @@ export function ProfilePage() {
         className="w-full max-w-[1000px] flex flex-col gap-10"
       >
         <ModalProfile title="Dados Pessoais">
-          <div className="w-full flex gap-10">
+          <div className="w-full flex flex-wrap md:flex-nowrap gap-10">
             <Text
               name="firstName"
               label="Primeiro nome"
@@ -95,7 +95,7 @@ export function ProfilePage() {
             value={formik.values.street}
             error={formik.errors.street}
           />
-          <div className="w-full flex gap-10">
+          <div className="w-full flex flex-wrap md:flex-nowrap gap-10">
             <Text
               name="postcode"
               label="CEP"
@@ -118,7 +118,7 @@ export function ProfilePage() {
               error={formik.errors.number}
             />
           </div>
-          <div className="w-full flex gap-10">
+          <div className="w-full flex flex-wrap md:flex-nowrap gap-10">
             <Text
               name="state"
               label="Estado"

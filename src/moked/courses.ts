@@ -10,7 +10,7 @@ export interface iLesson {
 export interface iModule {
   id: string;
   name: string;
-  slug?: string;
+  slug: string;
   description?: string;
   lessons: iLesson[];
   courseId: string;
@@ -37,7 +37,7 @@ export const courses: iCourse[] = [
       {
         id: "6712da5f-2576-4c8a-a18d-194249149d11",
         courseId: "90d200a5-47fa-4a16-821f-e749e1cc11f4",
-        name: "Nivel 1",
+        name: "Nível 1",
         slug: "nivel-1",
         description:
           "Duis et velit aliqua commodo duis velit aliquip officia cillum consequat aute ipsum eu cupidatat. Sit deserunt adipisicing eu minim pariatur ullamco proident et do elit. Do mollit nisi exercitation exercitation ipsum do ipsum ex ea. In fugiat sit excepteur eu occaecat laboris cillum qui et in aliqua irure et occaecat.",
@@ -137,7 +137,8 @@ export const courses: iCourse[] = [
       {
         id: "afa4b1dd-2005-496b-b74b-f116cdab38a9",
         courseId: "90d200a5-47fa-4a16-821f-e749e1cc11f4",
-        name: "Nivel 2",
+        name: "Nível 2",
+        slug: "nivel-2",
         description: `Aute eiusmod labore ea mollit esse reprehenderit aute dolor. Consequat reprehenderit aliquip officia commodo eiusmod dolor ad sit. Sint velit ullamco non laborum officia culpa sint laborum proident dolor. Consectetur nisi fugiat sunt do occaecat exercitation.
 Ullamco velit labore ex mollit consequat amet anim occaecat id exercitation veniam tempor irure nostrud. Do dolore tempor enim sint deserunt anim laboris adipisicing id aute. Eiusmod fugiat magna enim laborum veniam ullamco laborum magna incididunt commodo in elit irure.`,
         lessons: [
@@ -299,7 +300,8 @@ Ullamco velit labore ex mollit consequat amet anim occaecat id exercitation veni
       {
         id: "d32b4ef9-e1e6-4c90-b5eb-372441abbaaf",
         courseId: "90d200a5-47fa-4a16-821f-e749e1cc11f4",
-        name: "Nivel 3",
+        name: "Nível 3",
+        slug: "nivel-3",
         lessons: [
           {
             id: "35db8d97-9257-4c04-8fe9-1260080373fd",

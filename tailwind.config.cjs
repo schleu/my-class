@@ -6,6 +6,7 @@ module.exports = {
         screens: {
           xs: "426px",
           cut: "1440px",
+          '1/3': "33%",
         },
         colors: {
           "dark-900": "333333",

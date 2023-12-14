@@ -1,5 +1,5 @@
 import { LiaCertificateSolid } from "react-icons/lia";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AppRoutes } from "../../constants/AppRoutes";
 interface Props {
   image: string;
@@ -8,7 +8,7 @@ interface Props {
   progress: number;
   courseSlug: string;
   moduleSlug: string;
-  classSlug: string;
+  lessonSlug: string;
 }
 
 export function CourseCard({
@@ -16,22 +16,17 @@ export function CourseCard({
   title,
   description,
   progress,
-  classSlug,
+  lessonSlug,
   courseSlug,
   moduleSlug,
 }: Props) {
-  const navigate = useNavigate();
-  function generateCertificate() {
-    navigate(AppRoutes.CLASS_CERTIFICATE);
-  }
-
   return (
     <Link
       to={AppRoutes.CLASS_COURSE.replace(":courseSlug", courseSlug)
         .replace(":moduleSlug", moduleSlug)
-        .replace(":classSlug", classSlug)}
+        .replace(":lessonSlug", lessonSlug)}
     >
-      <div className="max-w-[300px] overflow-hidden shadow-xl rounded-xl border hover:border-primary bg-white">
+      <div className="group max-w-[300px] overflow-hidden shadow-xl rounded-xl border hover:border-primary/10 bg-white">
         <div className="w-full h-[200px]">
           <img loading="lazy" src={image} alt="" className="" />
         </div>
@@ -39,12 +34,9 @@ export function CourseCard({
         <div className="px-2 py-4">
           <h1 className="text-2xl font-bold">{title}</h1>
           <p className="text-sm">{description}</p>
-          <div className="h-10 flex items-center  hover:text-primary">
+          <div className="h-10 flex items-center  group-hover:text-primary">
             {progress >= 95 ? (
-              <div
-                className="flex items-center gap-2 text-sm font-bold"
-                onClick={generateCertificate}
-              >
+              <div className="flex items-center gap-2 text-sm font-bold">
                 <LiaCertificateSolid size={24} />
                 Certificado
               </div>

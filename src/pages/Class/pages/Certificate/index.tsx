@@ -1,10 +1,16 @@
 import { useEffect, useRef, useState } from "react";
-import { LiaCertificateSolid, LiaDownloadSolid } from "react-icons/lia";
+import {
+  LiaCertificateSolid,
+  LiaDownloadSolid,
+  LiaExternalLinkAltSolid,
+} from "react-icons/lia";
 import { certificatesMoked } from "../../../../moked/certificates";
 
 import html2canvas from "html2canvas";
-import { CertificateLayout } from "../../components/CertificateLayout";
 import { useParams } from "react-router-dom";
+import { Button } from "../../../../components/Button";
+import { CertificateLayout } from "../../components/CertificateLayout";
+import { Section } from "../../../../components/Section";
 
 export function CertificatePage() {
   const [data, setData] = useState<{
@@ -55,42 +61,54 @@ function Certificate({
   function download() {
     if (certificateRef.current) {
       html2canvas(certificateRef.current).then((canvas) => {
-        // Convert canvas to data URL
         const dataUrl = canvas.toDataURL("image/png");
 
-        // Create a link element
         const link = document.createElement("a");
-
-        // Set the href and download attributes
         link.href = dataUrl;
         link.download = "certificate.png";
-
-        // Simulate a click on the link to trigger the download
         link.click();
       });
     }
   }
 
-  return (
-    <div className="w-full p-4">
-      <div
-        onClick={download}
-        className="h-10 w-96 rounded-md px-10 font-bold flex justify-between items-center gap-2 bg-primary/50 cursor-pointer"
-      >
-        <div className="flex gap-2">
-          <LiaCertificateSolid size={24} />
-          {course}
-        </div>
-        <LiaDownloadSolid size={24} />
-      </div>
+  const handleLinkedInShare = () => {
+    const shareUrl = encodeURIComponent(window.location.href);
+    const title = encodeURIComponent("Check out my React App");
+    const description = encodeURIComponent("Amazing React App Description");
+    const imageUrl = encodeURIComponent("URL_DA_SUA_IMAGEM"); // Substitua pela URL da sua imagem
 
-      <div className="w-fit p-2" ref={certificateRef}>
+    const linkedInShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}&title=${title}&summary=${description}&imageUrl=${imageUrl}`;
+
+    window.open(linkedInShareUrl, "_blank");
+
+    html2canvas(certificateRef.current).then((canvas) => {
+      const dataUrl = canvas.toDataURL("image/png");
+    });
+
+    window.open(linkedInShareUrl, "_blank");
+  };
+
+  return (
+    <Section title={`Certificado ${course}`}>
+      <div className="w-fit mx-auto p-2" ref={certificateRef}>
         <CertificateLayout
           course={course}
           initDate={endDate}
           endDate={initDate}
         />
       </div>
-    </div>
+      <div className="w-1/2 flex gap-4 pt-2 mt-2 border-t border-primary/50">
+        <Button variant="outlined" className="gap-4" onClick={download}>
+          Baixar <LiaDownloadSolid size={24} />
+        </Button>
+        <Button
+          variant="filled"
+          className="gap-4"
+          onClick={handleLinkedInShare}
+        >
+          Linkedin <LiaExternalLinkAltSolid size={24} />
+        </Button>
+      </div>
+    </Section>
   );
 }

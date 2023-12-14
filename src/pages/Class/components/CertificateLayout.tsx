@@ -38,10 +38,10 @@ export function CertificateLayout({
       <div className="flex flex-col items-center ">
         <p className="w-64 border-b border-light-900 text-center font-BeauRivage text-4xl relative pt-10">
           <span className="absolute -top-3 left-1/2 -translate-x-1/2">
-            Jane Doe
+            Jane Smith
           </span>
         </p>
-        <p className="text-sm">Jane Doe - Diretora Responsável</p>
+        <p className="text-sm">Jane Smith - Diretora Responsável</p>
       </div>
     </div>
   );
