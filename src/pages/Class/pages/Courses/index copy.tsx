@@ -2,7 +2,12 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { AppRoutes } from "../../../../constants/AppRoutes";
 import { FaPlay } from "react-icons/fa";
-import { iLesson, iModule, courses, iCourse } from "../../../../moked/courses";
+import {
+  iLesson,
+  iModule,
+  coursesMoked,
+  iCourse,
+} from "../../../../moked/courses";
 import { Title } from "../../../../components/Title";
 
 export function CoursesPage() {
@@ -59,7 +64,7 @@ export function CoursesPage() {
     <div className="px-4">
       <Title text="Meus cursos" />
       <div className="pt-3 flex flex-col gap-4">
-        {courses.map((course) => (
+        {coursesMoked.map((course) => (
           <Course data={course} />
         ))}
       </div>

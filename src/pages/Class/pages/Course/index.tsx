@@ -4,7 +4,12 @@ import { MdFullscreen, MdFullscreenExit } from "react-icons/md";
 import { useNavigate, useParams } from "react-router-dom";
 import { Section } from "../../../../components/Section";
 import { VideoPlayer } from "../../../../components/VideoPlayer";
-import { courses, iCourse, iLesson, iModule } from "../../../../moked/courses";
+import {
+  coursesMoked,
+  iCourse,
+  iLesson,
+  iModule,
+} from "../../../../moked/courses";
 import { LateralModules } from "./LateralModules";
 
 export function CoursePage() {
@@ -16,16 +21,16 @@ export function CoursePage() {
 
   const navigate = useNavigate();
 
-  // if (
-  //   courseSlug === undefined ||
-  //   moduleSlug === undefined ||
-  //   lessonSlug === undefined
-  // ) {
-  //   navigate(-1);
-  // }
+  if (
+    courseSlug === undefined ||
+    moduleSlug === undefined ||
+    lessonSlug === undefined
+  ) {
+    navigate(-1);
+  }
 
   useEffect(() => {
-    const course = courses.find((e) => e.slug === courseSlug);
+    const course = coursesMoked.find((e) => e.slug === courseSlug);
     if (course === undefined) navigate(-1);
     setCourse(course);
 
@@ -53,7 +58,7 @@ export function CoursePage() {
             </div>
 
             <div
-              className="absolute top-4 right-4 cursor-pointer z-50 hover:text-white transition bg-light-200 rounded"
+              className="absolute top-4 right-4 cursor-pointer z-50 hover:text-white transition bg-light-200 rounded hidden md:flex"
               onClick={() => setFull((e) => !e)}
             >
               {full ? (

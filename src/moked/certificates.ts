@@ -1,4 +1,4 @@
-import { myCourses } from "./courses";
+import { myCoursesMoked } from "./courses";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface iCertificate {
@@ -9,9 +9,7 @@ interface iCertificate {
 }
 
 function getCompletedCourses() {
-  const mc = myCourses.filter((c) => c.progress >= 95);
-
-  console.log(mc);
+  const mc = myCoursesMoked.filter((c) => c.progress >= 95);
   return mc;
 }
 export const certificatesMoked = getCompletedCourses();

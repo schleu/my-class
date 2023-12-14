@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 import { useRef } from "react";
 import { Section } from "../../../../components/Section";
-import { courseStatistic } from "../../../../moked/courses";
+import { courseStatisticMoked } from "../../../../moked/courses";
 
 export function DashboardPage() {
   const ref = useRef<HTMLDivElement>(null);
@@ -12,8 +12,8 @@ export function DashboardPage() {
     if (ref.current) {
       const myChart = echarts.init(ref.current);
 
-      const xAxisData = courseStatistic.courses.map((e) => e.name);
-      const seriesData = courseStatistic.courses.map((e) => e.progress);
+      const xAxisData = courseStatisticMoked.courses.map((e) => e.name);
+      const seriesData = courseStatisticMoked.courses.map((e) => e.progress);
 
       myChart.setOption({
         title: {

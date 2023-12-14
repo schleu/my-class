@@ -32,7 +32,7 @@ export function UserProvider({ children }: { children: ReactNode }) {
   }, [auth, data, setLS]);
 
   async function makeLogin(email: string, senha: string) {
-    console.log("makeLogin", email, senha);
+    console.info("makeLogin", email, senha);
     const res = await getLogin();
 
     const user: iUser = UserMoked;

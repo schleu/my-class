@@ -35,9 +35,7 @@ module.exports = {
         },
         fontFamily: {
           Poppins: ["Poppins", "sans-serif"],
-          Whisper: ["Whisper", "sans-serif"],
           BeauRivage: ["Beau Rivage", "sans-serif"],
-          DancingScript: ["Dancing Script", "sans-serif"],
         },
         animation:{},
         keyframes:{}

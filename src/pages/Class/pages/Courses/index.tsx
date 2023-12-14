@@ -1,12 +1,12 @@
 import { CourseCard } from "../../../../components/CourseCard";
 import { Section } from "../../../../components/Section";
-import { myCourses } from "../../../../moked/courses";
+import { myCoursesMoked } from "../../../../moked/courses";
 
 export function CoursesPage() {
   return (
     <Section title="Meus cursos">
-      <div className="w-full flex flex-wrap gap-4">
-        {myCourses.map((e) => (
+      <div className="w-full flex flex-wrap gap-4 justify-center">
+        {myCoursesMoked.map((e) => (
           <CourseCard
             key={e.id}
             image={e.thumbnail || ""}

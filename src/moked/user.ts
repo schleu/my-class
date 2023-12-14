@@ -21,3 +21,5 @@ export const UserMoked: iUser = {
     postcode: 56612,
   },
 };
+
+export const certificatesMoked = {};

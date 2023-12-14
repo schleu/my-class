@@ -1,32 +1,9 @@
-import { FaChevronLeft, FaHome, FaRegUser } from "react-icons/fa";
-import { RiLogoutBoxLine, RiMovieLine } from "react-icons/ri";
-import { LiaCertificateSolid } from "react-icons/lia";
+import { FaChevronLeft } from "react-icons/fa";
+import { RiLogoutBoxLine } from "react-icons/ri";
 
 import { AppRoutes } from "../../../constants/AppRoutes";
 import { MenuOption } from "./MenuOption";
-
-const optionsMenu = [
-  {
-    text: "Dashboard",
-    Icon: FaHome,
-    link: AppRoutes.CLASS_DASHBOARD,
-  },
-  {
-    text: "Cursos",
-    Icon: RiMovieLine,
-    link: AppRoutes.CLASS_COURSES,
-  },
-  {
-    text: "Certificado",
-    Icon: LiaCertificateSolid,
-    link: AppRoutes.CLASS_CERTIFICATE,
-  },
-  {
-    text: "Perfil",
-    Icon: FaRegUser,
-    link: AppRoutes.CLASS_PROFILE,
-  },
-];
+import { optionsMenu } from "../../../constants/MenuOptions";
 
 interface Props {
   hide?: boolean;

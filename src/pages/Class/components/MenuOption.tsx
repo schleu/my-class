@@ -6,19 +6,29 @@ interface Props {
   Icon: any;
   full?: boolean;
   link: string;
+  callback?: () => void;
 }
 
-export function MenuOption({ Icon, title, full, link }: Props) {
+export function MenuOption({
+  Icon,
+  title,
+  full,
+  link,
+  callback = () => {},
+}: Props) {
   return (
-    <Link to={link}>
+    <Link to={link} onClick={callback}>
       <div
-        className={`group relative w-full flex items-center gap-2 py-4 bg-light-100 hover:brightness-110 text-light-300 hover:text-light-800 cursor-pointer transition font-bold ${
+        className={`group relative w-full flex items-center gap-4 md:gap-2 py-4 bg-light-100 hover:brightness-110 text-light-800 md:text-light-300 hover:text-light-800 cursor-pointer transition font-bold ${
           full ? "px-2 md:px-4 justify-start" : "justify-center"
         }`}
       >
-        <Icon className={`w-5 h-5`} />
+        <Icon className="w-8 md:w-5 h-8 md:h-5" />
+
         <p
-          className={`${
+          className={`
+            text-xl md:text-base
+          ${
             full
               ? "text-base flex-1"
               : `absolute top-1/2 -translate-y-1/2 -right-4 translate-x-full bg-light-200 text-light-100 rounded-md p-3 

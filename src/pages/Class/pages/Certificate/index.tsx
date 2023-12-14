@@ -1,16 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import {
-  LiaCertificateSolid,
-  LiaDownloadSolid,
-  LiaExternalLinkAltSolid,
-} from "react-icons/lia";
+import { LiaDownloadSolid, LiaExternalLinkAltSolid } from "react-icons/lia";
 import { certificatesMoked } from "../../../../moked/certificates";
 
 import html2canvas from "html2canvas";
 import { useParams } from "react-router-dom";
 import { Button } from "../../../../components/Button";
-import { CertificateLayout } from "../../components/CertificateLayout";
 import { Section } from "../../../../components/Section";
+import { CertificateLayout } from "../../components/CertificateLayout";
 
 export function CertificatePage() {
   const [data, setData] = useState<{
@@ -75,15 +71,11 @@ function Certificate({
     const shareUrl = encodeURIComponent(window.location.href);
     const title = encodeURIComponent("Check out my React App");
     const description = encodeURIComponent("Amazing React App Description");
-    const imageUrl = encodeURIComponent("URL_DA_SUA_IMAGEM"); // Substitua pela URL da sua imagem
+    const imageUrl = encodeURIComponent(
+      "https://app.rocketseat.com.br/_next/image?url=https%3A%2F%2Fxesque.rocketseat.dev%2Fusers%2Favatar%2Fprofile-66314391-c3dd-46ad-a774-e7e07f982462-1642178599637.jpg&w=828&q=75"
+    ); // Substitua pela URL da sua imagem
 
     const linkedInShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}&title=${title}&summary=${description}&imageUrl=${imageUrl}`;
-
-    window.open(linkedInShareUrl, "_blank");
-
-    html2canvas(certificateRef.current).then((canvas) => {
-      const dataUrl = canvas.toDataURL("image/png");
-    });
 
     window.open(linkedInShareUrl, "_blank");
   };

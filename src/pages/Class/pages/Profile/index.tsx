@@ -31,7 +31,7 @@ export function ProfilePage() {
   type FormType = z.infer<typeof schema>;
 
   function onSubmit(form: FormType) {
-    console.log(form);
+    console.info(form);
   }
 
   const formik = useFormik<FormType>({

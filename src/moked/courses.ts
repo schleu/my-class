@@ -25,7 +25,7 @@ export interface iCourse {
   modules: iModule[];
 }
 
-export const courses: iCourse[] = [
+export const coursesMoked: iCourse[] = [
   {
     id: "90d200a5-47fa-4a16-821f-e749e1cc11f4",
     name: "ReactJs",
@@ -550,38 +550,39 @@ export interface iMyCourse extends iCourse {
   progress: number;
 }
 
-export const myCourses: iMyCourse[] = [
+export const myCoursesMoked: iMyCourse[] = [
   {
-    ...courses[0],
+    ...coursesMoked[0],
     progress: Math.round(Math.random() * 99),
   },
   {
-    ...courses[1],
+    ...coursesMoked[1],
     progress: Math.round(Math.random() * 99),
   },
   {
-    ...courses[courses.length - 4],
+    ...coursesMoked[coursesMoked.length - 4],
     progress: 0,
   },
   {
-    ...courses[courses.length - 3],
+    ...coursesMoked[coursesMoked.length - 3],
     progress: 94,
   },
   {
-    ...courses[courses.length - 2],
+    ...coursesMoked[coursesMoked.length - 2],
     progress: 95,
   },
   {
-    ...courses[courses.length - 1],
+    ...coursesMoked[coursesMoked.length - 1],
     progress: 100,
   },
 ];
 
-export const courseStatistic = {
-  total: myCourses.length,
+export const courseStatisticMoked = {
+  total: myCoursesMoked.length,
   progress:
-    myCourses.reduce((acc, cur) => (acc += cur.progress), 0) / myCourses.length,
-  courses: myCourses.map((data) => ({
+    myCoursesMoked.reduce((acc, cur) => (acc += cur.progress), 0) /
+    myCoursesMoked.length,
+  courses: myCoursesMoked.map((data) => ({
     name: data.name,
     progress: data.progress,
   })),
