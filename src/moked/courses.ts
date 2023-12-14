@@ -1,29 +1,5 @@
-export interface iLesson {
-  id: string;
-  title: string;
-  slug: string;
-  thumb: string;
-  moduleId: string;
-  urlVideo: string;
-}
-
-export interface iModule {
-  id: string;
-  name: string;
-  slug: string;
-  description?: string;
-  lessons: iLesson[];
-  courseId: string;
-}
-
-export interface iCourse {
-  id: string;
-  name: string;
-  slug: string;
-  description: string;
-  thumbnail?: string;
-  modules: iModule[];
-}
+import { gerarNumeroAleatorio } from "../helpers/gerarNumeroAleatorio";
+import { iCourse } from "../types";
 
 export const coursesMoked: iCourse[] = [
   {
@@ -545,6 +521,14 @@ Ullamco velit labore ex mollit consequat amet anim occaecat id exercitation veni
     ],
   },
 ];
+
+export const ratingCourseMoked = coursesMoked.map((e) => ({
+  id: "",
+  courseId: e.id,
+  ratings: Array(gerarNumeroAleatorio(99))
+    .fill("")
+    .map(() => gerarNumeroAleatorio(5)),
+}));
 
 export interface iMyCourse extends iCourse {
   progress: number;

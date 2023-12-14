@@ -3,12 +3,8 @@ import { MdFullscreen, MdFullscreenExit } from "react-icons/md";
 import { useNavigate, useParams } from "react-router-dom";
 import { Section } from "../../../../components/Section";
 import { VideoPlayer } from "../../../../components/VideoPlayer";
-import {
-  coursesMoked,
-  iCourse,
-  iLesson,
-  iModule,
-} from "../../../../moked/courses";
+import { iCourse, iLesson, iModule } from "../../../../types";
+import { coursesMoked } from "../../../../moked/courses";
 import { LateralModules } from "./LateralModules";
 import { MenuLesson } from "./MenuLesson";
 
@@ -71,8 +67,16 @@ export function CoursePage() {
             </div>
           </div>
 
+          <h1 className="font-bold text-primary">
+            {course?.name} / {module?.name} / {lesson?.title}
+          </h1>
           {course && module && lesson && (
-            <MenuLesson course={course} module={module} lesson={lesson} />
+            <MenuLesson
+              course={course}
+              module={module}
+              lesson={lesson}
+              full={full}
+            />
           )}
         </div>
         <div className="hidden md:block">

@@ -1,23 +1,32 @@
-import { useState } from "react";
-import { iCourse, iLesson, iModule } from "../../../../moked/courses";
+import { useEffect, useState } from "react";
+import { iCourse, iLesson, iModule } from "../../../../types";
 import { LateralModules } from "./LateralModules";
+import { Rating } from "./Rating";
 
 interface Props {
   course: iCourse;
   module: iModule;
   lesson: iLesson;
+  full: boolean;
 }
 
-export function MenuLesson({ course, lesson, module }: Props) {
+export function MenuLesson({ course, module, full = false }: Props) {
   enum Menus {
-    DESCRITION = "Descrição",
     CLASS = "Aulas",
+    DESCRITION = "Descrição",
+    RATING = "Avaliações",
   }
   type Menu = keyof typeof Menus;
 
   const menusKeys: Menu[] = Object.keys(Menus) as Menu[];
 
-  const [actual, setActual] = useState<Menu>("DESCRITION");
+  const [actual, setActual] = useState<Menu>("RATING");
+
+  useEffect(() => {
+    if (!full) {
+      setActual("RATING");
+    }
+  }, [full]);
 
   function handleActual(m: Menu) {
     setActual(m);
@@ -29,10 +38,13 @@ export function MenuLesson({ course, lesson, module }: Props) {
         {menusKeys.map((item) => (
           <li
             key={item}
-            className={`w-full h-10 font-bold border-2 flex items-center justify-center transition cursor-pointer ${
+            className={`w-full h-10 font-bold border-2 items-center justify-center transition cursor-pointer ${
+              !full && item === "CLASS" ? "flex md:hidden" : "flex"
+            }
+            ${
               actual === item
-                ? "border-primary shadow-xl"
-                : " border-transparent"
+                ? "border-primary shadow-xl flex"
+                : "border-transparent"
             }`}
             onClick={() => handleActual(item)}
           >
@@ -47,10 +59,6 @@ export function MenuLesson({ course, lesson, module }: Props) {
             actual === "DESCRITION" ? "animate-slideIn flex" : "hidden"
           } `}
         >
-          <h1 className="font-bold text-primary">
-            {course?.name} / {module?.name} / {lesson?.title}
-          </h1>
-
           <div className="flex flex-col gap-2">
             <h2 className="text-xl font-bold">Descrição:</h2>
             <p>{module?.description}</p>
@@ -63,11 +71,19 @@ export function MenuLesson({ course, lesson, module }: Props) {
         </div>
 
         <div
-          className={`w-full h-full  flex-1 flex-col gap-4 transition  ${
-            actual === "CLASS" ? "animate-slideIn flex" : "hidden"
-          } `}
+          className={`w-full h-full  flex-1 flex-col gap-4 transition ${
+            full ? "flex" : "flex md:hidden"
+          }  ${actual === "CLASS" ? "animate-slideIn flex" : "hidden"} `}
         >
           <LateralModules course={course} full={false} />
+        </div>
+
+        <div
+          className={`w-full h-full  flex-1 flex-col gap-4 transition ${
+            actual === "RATING" ? "animate-slideIn flex" : "hidden"
+          } `}
+        >
+          <Rating />
         </div>
       </div>
     </div>

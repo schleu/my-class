@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { MenuModule } from "./MenuModule";
-import { iCourse } from "../../../../moked/courses";
+import { iCourse } from "../../../../types";
 
 interface Props {
   full?: boolean;
@@ -16,7 +16,7 @@ export function LateralModules({ full = false, course }: Props) {
   return (
     <div
       className={`flex transition flex-col gap-4 ${
-        full ? "w-0 overflow-hidden " : "w-96"
+        full ? "w-0 overflow-hidden " : "w-full md:w-96"
       }`}
     >
       {course?.modules.map((m) => (

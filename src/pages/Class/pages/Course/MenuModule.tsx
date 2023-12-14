@@ -4,7 +4,7 @@ import { BiCameraMovie } from "react-icons/bi";
 import { MdChevronRight } from "react-icons/md";
 import { Link, useParams } from "react-router-dom";
 import { AppRoutes } from "../../../../constants/AppRoutes";
-import { iModule } from "../../../../moked/courses";
+import { iModule } from "../../../../types";
 
 interface Props {
   module: iModule;
