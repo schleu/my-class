@@ -37,8 +37,36 @@ module.exports = {
           Poppins: ["Poppins", "sans-serif"],
           BeauRivage: ["Beau Rivage", "sans-serif"],
         },
-        animation:{},
-        keyframes:{}
+        animation:{
+          slideIn: "slideIn .7s ease-in-out .4s backwards",
+          slideOut: "animeDown .7s ease-in-out .4s backwards",
+        },
+        keyframes:{
+          slideIn: {
+            "0%":{
+              transform: "translateY(50px)",
+              "-webkit-transform": "translateY(50px)",
+              opacity: 0,
+              },
+              "100%":{
+              transform: "translateY(0px)",
+              "-webkit-transform": "translateY(0px)",
+              opacity: 1,
+              }
+          },
+          animeDown: {
+            "0%":{
+              transform: "translateY(-50px)",
+              "-webkit-transform": "translateY(-50px)",
+              opacity: 0,
+            },
+            "100%":{
+              transform: "translateY(0px)",
+              "-webkit-transform": "translateY(0px)",
+              opacity: 1,
+            }
+          },
+        }
       },
     },
   };
