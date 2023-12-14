@@ -7,6 +7,6 @@ export enum AppRoutes {
   CLASS_COURSES = "/class/courses",
   CLASS_COURSE = "/class/course/:courseSlug/:moduleSlug/:classSlug",
   CLASS_CERTIFICATE = "/class/cerificate",
-  CLASS_CERTIFICATE_VALIDATOR = "/class/cerificate/validator",
+  CLASS_CERTIFICATE_VALIDATOR = "/class/cerificate/:courseId",
   LOGOFF = "/class/logoff",
 }

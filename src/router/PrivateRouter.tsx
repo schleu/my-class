@@ -7,6 +7,7 @@ import { CoursesPage } from "../pages/Class/pages/Courses";
 import { DashboardPage } from "../pages/Class/pages/Dashboard";
 import { LogoffPage } from "../pages/Logoff";
 import { ProfilePage } from "../pages/Class/pages/Profile";
+import { CertificatesPage } from "../pages/Class/pages/Certificates";
 import { CertificatePage } from "../pages/Class/pages/Certificate";
 
 export function PrivateRouter() {
@@ -20,6 +21,10 @@ export function PrivateRouter() {
         <Route path={AppRoutes.CLASS_DASHBOARD} element={<DashboardPage />} />
         <Route
           path={AppRoutes.CLASS_CERTIFICATE}
+          element={<CertificatesPage />}
+        />
+        <Route
+          path={AppRoutes.CLASS_CERTIFICATE_VALIDATOR}
           element={<CertificatePage />}
         />
         <Route path={AppRoutes.CLASS_COURSES} element={<CoursesPage />} />
