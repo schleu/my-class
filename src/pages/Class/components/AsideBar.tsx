@@ -13,7 +13,7 @@ interface Props {
 export function AsideBar({ hide, toogleHide }: Props) {
   return (
     <div
-      className={`hidden md:flex fixed top-0 z-40 pt-24 transition max-h-screen h-full bg-light-100 shadow-xl  flex-col font-Poppins  ${
+      className={`hidden md:flex fixed top-0 z-40 pt-24 transition max-h-screen h-full bg-light-100 shadow-xl flex-col ${
         hide ? "w-20" : "w-52"
       }`}
     >

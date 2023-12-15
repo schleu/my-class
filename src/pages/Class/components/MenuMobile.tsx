@@ -1,5 +1,7 @@
+import { RiLogoutBoxLine } from "react-icons/ri";
 import { optionsMenu } from "../../../constants/MenuOptions";
 import { MenuOption } from "./MenuOption";
+import { AppRoutes } from "../../../constants/AppRoutes";
 
 interface Props {
   isOpen: boolean;
@@ -19,7 +21,7 @@ export function MenuMobile({ isOpen, closeMenu }: Props) {
         }`}
         onClick={closeMenu}
       />
-      <div className={`w-full h-fit pb-2 bg-light-100`}>
+      <div className={`w-full h-fit bg-light-100`}>
         {optionsMenu.map((opt) => (
           <MenuOption
             key={opt.link}
@@ -30,6 +32,13 @@ export function MenuMobile({ isOpen, closeMenu }: Props) {
             callback={closeMenu}
           />
         ))}
+
+        <MenuOption
+          title="Sair"
+          Icon={RiLogoutBoxLine}
+          link={AppRoutes.LOGOFF}
+          full
+        />
       </div>
     </div>
   );

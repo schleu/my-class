@@ -11,7 +11,7 @@ import { z } from "zod";
 import { toFormikValidationSchema } from "zod-formik-adapter";
 import { FaArrowLeft } from "react-icons/fa";
 
-export function LoginPage() {
+export function CreateAccountPage() {
   const { logoUrl } = useCompany();
   const { makeLogin, user } = useLogin();
   const navigate = useNavigate();
@@ -23,6 +23,9 @@ export function LoginPage() {
   }, [user]);
 
   const schema = z.object({
+    name: z.string({
+      errorMap: () => ({ message: "Campo obrigatório" }),
+    }),
     email: z
       .string({
         errorMap: () => ({ message: "Campo obrigatório" }),
@@ -44,14 +47,15 @@ export function LoginPage() {
     setTimeout(() => {
       setLoading(false);
 
-      setTimeout(() => {
-        navigate(AppRoutes.CLASS_DASHBOARD);
-      }, 500);
+      //   setTimeout(() => {
+      //     navigate(AppRoutes.CLASS_DASHBOARD);
+      //   }, 500);
     }, 3000);
   }
 
   const formik = useFormik<FormType>({
     initialValues: {
+      name: "John Doe",
       email: "jonhdoe@myclass.com",
       password: "123456",
     },
@@ -61,21 +65,6 @@ export function LoginPage() {
 
   return (
     <div className="w-full h-screen flex">
-      <div className="w-full h-screen hidden lg:flex flex-col gap-10 items-center justify-center">
-        <div className="w-[400px] h-screen hidden lg:flex flex-col gap-10 items-start justify-center">
-          <Link to={AppRoutes.HOME} className="">
-            <img src={logoUrl} alt="" className="w-[300px]" />
-          </Link>
-
-          <h1 className="text-5xl font-bold">Faça seu login na plataforma</h1>
-
-          <Link to={AppRoutes.HOME} className="flex gap-2 items-center">
-            <FaArrowLeft />
-            Voltar para home
-          </Link>
-        </div>
-      </div>
-
       <div className="w-full h-screen flex flex-col justify-center items-center bg-white">
         <Link to={AppRoutes.HOME} className="mb-10 md:mb-20 lg:hidden">
           <img src={logoUrl} alt="" className="w-[300px]" />
@@ -84,12 +73,21 @@ export function LoginPage() {
         <form
           onSubmit={formik.handleSubmit}
           className="
-            max-w-[500px] max-h-[300px] h-screen w-full 
+            max-w-[500px] max-h-[500px] h-screen w-full 
             flex flex-col justify-center items-center 
             rounded-xl py-6 px-10 shadow-2xl
             gap-4 bg-light-100
         "
         >
+          <Text
+            label="Nome"
+            placeholder="Insira seu nome"
+            name="name"
+            value={formik.values.name}
+            onChange={formik.handleChange}
+            error={formik.errors.name}
+          />
+
           <Text
             label="Email"
             placeholder="Insira seu email"
@@ -108,10 +106,42 @@ export function LoginPage() {
             error={formik.errors.password}
           />
 
+          <p>
+            Ao se registrar, você aceita nossos{" "}
+            <Link className="font-bold" to={AppRoutes.TERMS_OF_USE}>
+              termos de uso
+            </Link>{" "}
+            e a nossa{" "}
+            <Link className="font-bold" to={AppRoutes.POLICY_PRIVACY}>
+              política de privacidade
+            </Link>
+            .
+          </p>
+
           <Button className="w-full" isLoading={loading} type="submit">
-            Entrar
+            Criar
           </Button>
         </form>
+      </div>
+
+      <div className="w-full h-screen hidden lg:flex flex-col gap-10 items-center justify-center">
+        <div className="w-[400px] h-screen hidden lg:flex flex-col gap-10 items-start justify-center">
+          <Link to={AppRoutes.HOME} className="">
+            <img src={logoUrl} alt="" className="w-[300px]" />
+          </Link>
+
+          <h1 className="text-5xl font-bold">
+            Mais de 600 mil devs já estão conectados.
+          </h1>
+
+          <p className="text-lg font-semibold">
+            Junte-se a milhares de devs e acelere na direção dos seus objetivos
+          </p>
+          <Link to={AppRoutes.LOGIN} className="flex gap-2 items-center">
+            <FaArrowLeft />
+            Voltar para login
+          </Link>
+        </div>
       </div>
     </div>
   );

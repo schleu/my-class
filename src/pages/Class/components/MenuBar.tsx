@@ -13,7 +13,7 @@ export function MenuBar() {
   const toggleShowMenu = () => setShowMenu((e) => !e);
 
   return (
-    <div className="w-full h-20 flex justify-center fixed z-50 shadow-xl bg-light-100 font-Poppins ">
+    <div className="w-full h-20 flex justify-center fixed z-50 shadow-xl bg-light-100">
       <div className="max-w-screen-cut w-full h-full flex justify-between items-center px-4 md:px-6">
         <div className="md:hidden" onClick={toggleShowMenu}>
           <GiHamburgerMenu size={24} />

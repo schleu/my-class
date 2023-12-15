@@ -5,7 +5,7 @@ import { myCoursesMoked } from "../../../../moked/courses";
 export function CoursesPage() {
   return (
     <Section title="Meus cursos">
-      <div className="w-full flex flex-wrap gap-4 justify-center">
+      <div className="w-full flex flex-wrap gap-8 justify-center md:justify-start">
         {myCoursesMoked.map((e) => (
           <CourseCard
             key={e.id}

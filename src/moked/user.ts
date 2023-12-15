@@ -1,4 +1,5 @@
 import { iUser } from "../context/User";
+import { useGenerate } from "./helpers/useGenerate";
 
 export const UserMoked: iUser = {
   id: "c42291cb-0af2-4167-bc85-37c4198b643f",
@@ -7,9 +8,7 @@ export const UserMoked: iUser = {
   lastName: "Doe",
   email: "jonhdoe@myclass.com",
   phone: "(71) 99999-9999",
-  picture: `https://randomuser.me/api/portraits/med/men/${Math.round(
-    Math.random() * 99
-  )}.jpg`,
+  picture: useGenerate.randomPhoto(),
   location: {
     street: {
       number: 6463,

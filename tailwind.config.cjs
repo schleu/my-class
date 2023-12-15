@@ -6,7 +6,7 @@ module.exports = {
         screens: {
           xs: "426px",
           cut: "1440px",
-          '1/3': "33%",
+          '1/3': "30%",
         },
         colors: {
           "dark-900": "333333",
@@ -34,6 +34,7 @@ module.exports = {
           "light-100": "#F9F9F9",
         },
         fontFamily: {
+          Nunito: ["Nunito", "sans-serif"],
           Poppins: ["Poppins", "sans-serif"],
           BeauRivage: ["Beau Rivage", "sans-serif"],
         },
@@ -68,6 +69,9 @@ module.exports = {
           },
         }
       },
+        fontFamily: {
+          sans: ['"Nunito"', 'sans-serif']
+        }
     },
   };
   

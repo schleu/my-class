@@ -20,11 +20,13 @@ export function MenuLesson({ course, module, full = false }: Props) {
 
   const menusKeys: Menu[] = Object.keys(Menus) as Menu[];
 
-  const [actual, setActual] = useState<Menu>("RATING");
+  const defaultMenu: Menu = "DESCRITION";
+
+  const [actual, setActual] = useState<Menu>(defaultMenu);
 
   useEffect(() => {
     if (!full) {
-      setActual("RATING");
+      setActual(defaultMenu);
     }
   }, [full]);
 
@@ -33,18 +35,18 @@ export function MenuLesson({ course, module, full = false }: Props) {
   }
 
   return (
-    <div className="w-full flex flex-col gap-4">
-      <ul className="w-full flex justify-start">
+    <div className="w-full flex flex-col gap-10">
+      <ul className="w-full flex justify-start gap-1">
         {menusKeys.map((item) => (
           <li
             key={item}
-            className={`w-full h-10 font-bold border-2 items-center justify-center transition cursor-pointer ${
-              !full && item === "CLASS" ? "flex md:hidden" : "flex"
-            }
+            className={`w-full h-10 font-bold border-2 items-center justify-center transition cursor-pointer border-primary rounded-md 
+              
+            ${!full && item === "CLASS" ? "flex md:hidden" : "flex"}
             ${
               actual === item
-                ? "border-primary shadow-xl flex"
-                : "border-transparent"
+                ? " shadow-xl flex -translate-y-1"
+                : " border-y-primary hover:-translate-y-1"
             }`}
             onClick={() => handleActual(item)}
           >

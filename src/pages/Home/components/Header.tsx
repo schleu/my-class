@@ -1,9 +1,15 @@
 import Logo from "../../../assets/logo.webp";
 import { Button } from "../../../components/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AppRoutes } from "../../../constants/AppRoutes";
 
 export function Header() {
+  const navigate = useNavigate();
+
+  function redirect(link: AppRoutes) {
+    navigate(link);
+  }
+
   return (
     <div className="w-full h-20 flex justify-center fixed z-50 shadow-xl bg-light-100">
       <div className="max-w-screen-cut w-full h-full   flex justify-between items-center px-4 md:px-6">
@@ -12,10 +18,13 @@ export function Header() {
         </Link>
 
         <div className="flex gap-4">
-          <Link to={AppRoutes.LOGIN}>
-            <Button variant="outlined">Entrar</Button>
-          </Link>
-          <Button>Criar Conta</Button>
+          <Button variant="outlined" onClick={() => redirect(AppRoutes.LOGIN)}>
+            Entrar
+          </Button>
+
+          <Button onClick={() => redirect(AppRoutes.CREATE_ACCOUNT)}>
+            Criar Conta
+          </Button>
         </div>
       </div>
     </div>

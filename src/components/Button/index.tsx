@@ -16,7 +16,7 @@ export function Button({
   return (
     <button
       {...props}
-      className={`px-4 py-2 font-bold rounded-lg flex justify-center items-center text-lg ${
+      className={`px-4 py-2 font-bold rounded-lg flex justify-center items-center text-base md:text-lg ${
         variant === "filled"
           ? "bg-primary hover:brightness-105 text-light-100"
           : "hover:text-primary hover:brightness-110"

@@ -79,6 +79,7 @@ export function CoursePage() {
             />
           )}
         </div>
+
         <div className="hidden md:block">
           {course && <LateralModules course={course} full={full} />}
         </div>

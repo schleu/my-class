@@ -9,7 +9,7 @@ export function Footer() {
   const { name, logoUrl } = useCompany();
 
   return (
-    <footer className="w-full flex justify-center border-light-200/50 border-t">
+    <footer className="w-full flex justify-center border-light-200/50 border-t mt-auto">
       <div className="w-full max-w-screen-cut flex flex-col px-4 md:px-6">
         <div className="w-full flex flex-wrap  justify-between pt-20 pb-10">
           <div className="order-1 md:order-0">

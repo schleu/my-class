@@ -1,6 +1,6 @@
 import { Route, Routes, Navigate } from "react-router-dom";
 import { AppRoutes } from "../constants/AppRoutes";
-import { NotFound } from "../pages/404";
+// import { NotFound } from "../pages/404";
 import { ClassPage } from "../pages/Class";
 import { CoursePage } from "../pages/Class/pages/Course";
 import { CoursesPage } from "../pages/Class/pages/Courses";
@@ -33,7 +33,7 @@ export function PrivateRouter() {
         <Route path={AppRoutes.LOGOFF} element={<LogoffPage />} />
         <Route path="*" element={<Navigate to={AppRoutes.CLASS_DASHBOARD} />} />
       </Route>
-      <Route path="*" Component={NotFound} />
+      {/* <Route path="*" Component={NotFound} /> */}
     </Routes>
   );
 }

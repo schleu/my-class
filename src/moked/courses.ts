@@ -1,5 +1,5 @@
-import { gerarNumeroAleatorio } from "../helpers/gerarNumeroAleatorio";
 import { iCourse } from "../types";
+import { generateRandomNumber, useGenerate } from "./helpers";
 
 export const coursesMoked: iCourse[] = [
   {
@@ -443,6 +443,58 @@ Ullamco velit labore ex mollit consequat amet anim occaecat id exercitation veni
     ],
   },
   {
+    id: "a91c061b-bcdc-4380-a511-8a66501bbbc4",
+    name: "Banco de dados relacional",
+    slug: "banco-de-dados-relacional",
+    description:
+      "Esse adipisicing eu proident anim magna irure ut eu nisi aliqua et Lorem.",
+    thumbnail: "https://picsum.photos/300/200/?blur",
+    modules: [
+      {
+        id: "5a056512-5440-4944-a65e-2ee82bfe452b",
+        name: "Conceito",
+        slug: "conceito",
+        courseId: "871c241f-8543-49a5-be5b-b5f773ad316c",
+        lessons: [
+          {
+            id: "b39630fa-137d-4e71-b80c-d7e3cf651ee4",
+            moduleId: "a4affde1-8765-4f4b-bbb9-ebae6835d736",
+            urlVideo: "893558308",
+            thumb: "https://picsum.photos/300/200/?blur",
+            title: "Criando um projeto",
+            slug: "criando-um-projeto",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "4c86fde8-25c6-4bd1-99a8-c197ea5221d2",
+    name: "React Native",
+    slug: "react-native",
+    description:
+      "Esse adipisicing eu proident anim magna irure ut eu nisi aliqua et Lorem.",
+    thumbnail: "https://picsum.photos/300/200/?blur",
+    modules: [
+      {
+        id: "5a056512-5440-4944-a65e-2ee82bfe452b",
+        name: "Conceito",
+        slug: "conceito",
+        courseId: "871c241f-8543-49a5-be5b-b5f773ad316c",
+        lessons: [
+          {
+            id: "b39630fa-137d-4e71-b80c-d7e3cf651ee4",
+            moduleId: "a4affde1-8765-4f4b-bbb9-ebae6835d736",
+            urlVideo: "893558308",
+            thumb: "https://picsum.photos/300/200/?blur",
+            title: "Criando um projeto",
+            slug: "criando-um-projeto",
+          },
+        ],
+      },
+    ],
+  },
+  {
     id: "d7765e5e-77b9-4b81-971a-1a1f37309ad4",
     name: "Javascript",
     slug: "javascript",
@@ -525,9 +577,9 @@ Ullamco velit labore ex mollit consequat amet anim occaecat id exercitation veni
 export const ratingCourseMoked = coursesMoked.map((e) => ({
   id: "",
   courseId: e.id,
-  ratings: Array(gerarNumeroAleatorio(99))
+  ratings: Array(useGenerate.randomNumber(99))
     .fill("")
-    .map(() => gerarNumeroAleatorio(5)),
+    .map(() => useGenerate.randomNumber(5)),
 }));
 
 export interface iMyCourse extends iCourse {
@@ -537,15 +589,23 @@ export interface iMyCourse extends iCourse {
 export const myCoursesMoked: iMyCourse[] = [
   {
     ...coursesMoked[0],
-    progress: Math.round(Math.random() * 99),
+    progress: generateRandomNumber(99),
   },
   {
     ...coursesMoked[1],
-    progress: Math.round(Math.random() * 99),
+    progress: generateRandomNumber(99),
+  },
+  {
+    ...coursesMoked[coursesMoked.length - 6],
+    progress: generateRandomNumber(99),
+  },
+  {
+    ...coursesMoked[coursesMoked.length - 5],
+    progress: 100,
   },
   {
     ...coursesMoked[coursesMoked.length - 4],
-    progress: 0,
+    progress: 100,
   },
   {
     ...coursesMoked[coursesMoked.length - 3],
@@ -563,9 +623,7 @@ export const myCoursesMoked: iMyCourse[] = [
 
 export const courseStatisticMoked = {
   total: myCoursesMoked.length,
-  progress:
-    myCoursesMoked.reduce((acc, cur) => (acc += cur.progress), 0) /
-    myCoursesMoked.length,
+  progress: generateRandomNumber(99),
   courses: myCoursesMoked.map((data) => ({
     name: data.name,
     progress: data.progress,

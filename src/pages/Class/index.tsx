@@ -10,13 +10,15 @@ export function ClassPage() {
   return (
     <UserProvider>
       <MenuBar />
-      <AsideBar hide={hide} toogleHide={() => setHide((e) => !e)} />
-      <div
-        className={`font-Poppins transition pt-20 ${
-          hide ? "md:pl-20" : "md:pl-52"
-        }`}
-      >
-        <Outlet />
+      <div className="mx-auto max-w-screen-cut">
+        <AsideBar hide={hide} toogleHide={() => setHide((e) => !e)} />
+        <div
+          className={`transition pt-20 bg-light-100 min-h-screen ${
+            hide ? "md:pl-20" : "md:pl-52"
+          }`}
+        >
+          <Outlet />
+        </div>
       </div>
     </UserProvider>
   );
