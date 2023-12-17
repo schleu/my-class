@@ -5,7 +5,7 @@ function getRate() {
   return r > 5 ? 5 : r;
 }
 
-export const ratingsMoked = Array(useGenerate.randomNumber(99))
+export const ratingsMoked = Array(useGenerate.randomNumber(50))
   .fill("")
   .map(() => ({
     id: useGenerate.UUID(),

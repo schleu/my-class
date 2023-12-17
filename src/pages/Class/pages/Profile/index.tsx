@@ -2,7 +2,7 @@ import { useFormik } from "formik";
 import { z } from "zod";
 import { toFormikValidationSchema } from "zod-formik-adapter";
 
-import { Text } from "../../../../components/Input";
+import { Text } from "../../../../components/Input/Text";
 import { Section } from "../../../../components/Section";
 import { ModalProfile } from "./Modal";
 import { Button } from "../../../../components/Button";

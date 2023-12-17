@@ -1,9 +1,12 @@
 import { TiStarFullOutline } from "react-icons/ti";
 
-import { ratingsMoked } from "../../../../moked/ratings";
 import { Title } from "../../../../components/Title";
+import { ratingsMoked } from "../../../../moked/ratings";
+import { RatingComentaries } from "./RatingComentaries";
+import { useState } from "react";
 
 export function Rating() {
+  const [filterRate, setFilterRate] = useState(0);
   const ratings = ratingsMoked;
 
   const ratingsLength = ratings.length;
@@ -12,30 +15,17 @@ export function Rating() {
 
   const average = sum / ratingsLength;
 
-  const ranking = ratings.reduce(
-    (acc, act) => {
-      if (act.rate === 1) {
-        acc[0] += 1;
-      }
-      if (act.rate === 2) {
-        acc[1] += 1;
-      }
-      if (act.rate === 3) {
-        acc[2] += 1;
-      }
-      if (act.rate === 4) {
-        acc[3] += 1;
-      }
-      if (act.rate === 5) {
-        acc[4] += 1;
-      }
+  const rates: number[] = ratings.map((r) => r.rate);
 
+  const ranking = rates.reduce(
+    (acc, item) => {
+      acc[item - 1] += 1;
       return acc;
     },
     [0, 0, 0, 0, 0]
   );
 
-  const percentage = (n: number, total: number) =>
+  const getPercentage = (n: number, total: number) =>
     ((n / total) * 100).toFixed(1);
 
   return (
@@ -49,78 +39,39 @@ export function Rating() {
         </div>
 
         <div className="w-full break-words flex flex-col  gap-4">
-          {ranking.map((rat, idx) => (
-            <div key={idx} className="w-full flex items-center gap-2">
-              <div className="flex-1 h-2 relative bg-light-200 rounded-sm">
-                <div
-                  className="bg-info h-full rounded-sm"
-                  style={{
-                    width: `${percentage(rat, ratingsLength)}%`,
-                  }}
-                />
-              </div>
+          {ranking.map((rat, idx) => {
+            const percentage = getPercentage(rat, ratingsLength);
+            return (
+              <div
+                key={idx}
+                className="w-full flex items-center gap-2 cursor-pointer"
+                onClick={() => setFilterRate(idx + 1)}
+              >
+                <div className="flex-1 h-2 relative bg-light-200 rounded-sm">
+                  <div
+                    className="bg-info h-full rounded-sm"
+                    style={{
+                      width: `${percentage}%`,
+                    }}
+                  />
+                </div>
 
-              <div className="flex w-20 ">
-                {Array(idx + 1)
-                  .fill("")
-                  .map((_, i) => (
-                    <TiStarFullOutline key={i} />
-                  ))}
-              </div>
+                <div className="flex w-20 ">
+                  {Array(idx + 1)
+                    .fill("")
+                    .map((_, i) => (
+                      <TiStarFullOutline key={i} />
+                    ))}
+                </div>
 
-              <div className="text-xs w-10">
-                {percentage(rat, ratingsLength)}%
+                <div className="text-xs w-10 ">{percentage}%</div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
-      <div className="flex flex-col gap-4">
-        <Title text="Avaliações" size="small" />
-
-        <div className="flex flex-wrap gap-4 pl-4">
-          {ratingsMoked.map((r) => (
-            <RatingComentary
-              key={r.id}
-              rating={r.rate}
-              name={r.user.name}
-              picture={r.user.picture}
-              comment={r.comment}
-            />
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-interface iRatingComentary {
-  name: string;
-  picture: string;
-  rating: number;
-  comment: string;
-}
-
-function RatingComentary({ rating, name, picture, comment }: iRatingComentary) {
-  return (
-    <div className="w-full flex gap-2 border-b border-b-info py-6">
-      <div className="w-12 h-12 rounded-full overflow-hidden">
-        <img src={picture} alt="user photo" />
-      </div>
-      <div className="flex flex-col">
-        <p>"{comment}"</p>
-        <div className="">
-          <p className="text-xs">{name}</p>
-          <div className="flex w-20 ">
-            {Array(rating)
-              .fill("")
-              .map((_, i) => (
-                <TiStarFullOutline key={i} />
-              ))}
-          </div>
-        </div>
-      </div>
+      <RatingComentaries rate={filterRate} />
     </div>
   );
 }
