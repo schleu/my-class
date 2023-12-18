@@ -5,17 +5,19 @@ import { ratingsMoked } from "../../../../moked/ratings";
 import { RatingComentary } from "./RatingComentary";
 
 interface Props {
+  minRate?: number;
+  maxRate?: number;
   rate?: number;
 }
 
-export function RatingComentaries({ rate }: Props) {
+export function RatingComentaries({ rate, minRate = 1, maxRate = 5 }: Props) {
   const [filteredRatings, setFilteredRatings] = useState(ratingsMoked);
   const [filter, setFilter] = useState("");
 
   useEffect(() => {
     let ratings = [...ratingsMoked];
 
-    if (rate && rate > 0 && rate < 5) {
+    if (rate && rate >= minRate && rate <= maxRate) {
       ratings = ratings.filter((r) => r.rate === rate);
     }
 
@@ -28,7 +30,7 @@ export function RatingComentaries({ rate }: Props) {
     }
 
     setFilteredRatings(ratings);
-  }, [filter, rate]);
+  }, [filter, rate, minRate, maxRate]);
 
   function handle(e: string) {
     setFilter(e.toLowerCase());

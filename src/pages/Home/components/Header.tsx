@@ -18,11 +18,14 @@ export function Header() {
         </Link>
 
         <div className="flex gap-4">
-          <Button variant="outlined" onClick={() => redirect(AppRoutes.LOGIN)}>
+          <Button
+            variant="outlined"
+            onClick={() => redirect(AppRoutes.SIGN_IN)}
+          >
             Entrar
           </Button>
 
-          <Button onClick={() => redirect(AppRoutes.CREATE_ACCOUNT)}>
+          <Button onClick={() => redirect(AppRoutes.SIGN_UP)}>
             Criar Conta
           </Button>
         </div>

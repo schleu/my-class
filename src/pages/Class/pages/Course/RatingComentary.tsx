@@ -18,17 +18,19 @@ export function RatingComentary({
       <div className="w-12 h-12 rounded-full overflow-hidden">
         <img src={picture} alt="user photo" />
       </div>
+
       <div className="flex flex-col">
-        <p>"{comment}"</p>
-        <div className="">
-          <p className="text-xs">{name}</p>
-          <div className="flex w-20 ">
+        <p className="text-base">"{comment}"</p>
+
+        <div className="mt-2">
+          <div className="flex">
             {Array(rating)
               .fill("")
               .map((_, i) => (
-                <TiStarFullOutline key={i} />
+                <TiStarFullOutline key={i} size={12} />
               ))}
           </div>
+          <p className="text-xs">{name}</p>
         </div>
       </div>
     </div>

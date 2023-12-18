@@ -15,13 +15,14 @@ O objetivo deste projeto é desenvolver um sistema de aula online sob demanda qu
 - [x] Perfil Page
 - [x] Meus Cursos Page
 - [x] Visualizar aula
-- [ ] Descrição das aulas
+- [x] Descrição das aulas
+- [x] Area do Certificado
+- [x] Gerador de certificado
+- [x] Avalialçao das aulas
 - [ ] Editar dados perfil [salvar no localstorage]
 - [ ] DarkMode
 - [ ] Multi idiomas [i18n]
 - [ ] Area do professor
-- [ ] Area do Certificado
-- [ ] Gerador de certificado
 - [ ] Validador de certificado
 
 ## Tecnologias utilizadas

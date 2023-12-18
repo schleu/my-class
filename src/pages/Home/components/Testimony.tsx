@@ -29,7 +29,7 @@ export function Testimony() {
     <div className="w-full flex justify-center">
       <div className="w-full max-w-screen-cut flex flex-col items-center gap-10 px-4 md:px-6">
         <h1 className="text-3xl font-bold">
-          A opinião de quem já <u>aprendeu ReactJS com o {name}</u>
+          A opinião de quem já <u>aprendeu programação com o {name}</u>
         </h1>
         <div className="flex flex-col md:flex-row flex-wrap gap-8 justify-center">
           {data.map((item) => (

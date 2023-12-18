@@ -36,7 +36,7 @@ export function MenuMobile({ isOpen, closeMenu }: Props) {
         <MenuOption
           title="Sair"
           Icon={RiLogoutBoxLine}
-          link={AppRoutes.LOGOFF}
+          link={AppRoutes.SIGN_OUT}
           full
         />
       </div>

@@ -25,8 +25,15 @@ export function Rating() {
     [0, 0, 0, 0, 0]
   );
 
+  const maxRate = rates.reduce((acc, act) => (acc > act ? acc : act));
+  const minRate = rates.reduce((acc, act) => (acc < act ? acc : act));
+
   const getPercentage = (n: number, total: number) =>
     ((n / total) * 100).toFixed(1);
+
+  function handleFilterRate(rate: number) {
+    setFilterRate((r) => (rate === r ? 0 : rate));
+  }
 
   return (
     <div className="flex flex-col gap-4">
@@ -45,7 +52,7 @@ export function Rating() {
               <div
                 key={idx}
                 className="w-full flex items-center gap-2 cursor-pointer"
-                onClick={() => setFilterRate(idx + 1)}
+                onClick={() => handleFilterRate(idx + 1)}
               >
                 <div className="flex-1 h-2 relative bg-light-200 rounded-sm">
                   <div
@@ -60,7 +67,7 @@ export function Rating() {
                   {Array(idx + 1)
                     .fill("")
                     .map((_, i) => (
-                      <TiStarFullOutline key={i} />
+                      <TiStarFullOutline key={i} size={12} />
                     ))}
                 </div>
 
@@ -71,7 +78,11 @@ export function Rating() {
         </div>
       </div>
 
-      <RatingComentaries rate={filterRate} />
+      <RatingComentaries
+        rate={filterRate}
+        maxRate={maxRate}
+        minRate={minRate}
+      />
     </div>
   );
 }

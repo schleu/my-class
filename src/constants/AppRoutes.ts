@@ -1,7 +1,8 @@
 export enum AppRoutes {
   HOME = "/",
-  LOGIN = "/login",
-  CREATE_ACCOUNT = "/create-account",
+  SIGN_IN = "/signIn",
+  SIGN_UP = "/signUp",
+  SIGN_OUT = "/logoff",
   CLASS = "/class",
   CLASS_DASHBOARD = "/class/dashboard",
   CLASS_PROFILE = "/class/profile",
@@ -9,7 +10,6 @@ export enum AppRoutes {
   CLASS_COURSE = "/class/course/:courseSlug/:moduleSlug/:lessonSlug",
   CLASS_CERTIFICATE = "/class/cerificates",
   CLASS_CERTIFICATE_VALIDATOR = "/class/cerificate/:courseId",
-  LOGOFF = "/class/logoff",
   TERMS_OF_USE = "/terms-of-use",
   POLICY_PRIVACY = "/polic",
 }

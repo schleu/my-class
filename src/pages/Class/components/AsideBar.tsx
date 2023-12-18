@@ -41,7 +41,7 @@ export function AsideBar({ hide, toogleHide }: Props) {
       <MenuOption
         title="Sair"
         Icon={RiLogoutBoxLine}
-        link={AppRoutes.LOGOFF}
+        link={AppRoutes.SIGN_OUT}
         full={!hide}
       />
     </div>

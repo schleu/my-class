@@ -4,6 +4,7 @@ import { FaLink } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
 import { useCompany } from "../../../hooks/useCompany";
+import { AppRoutes } from "../../../constants/AppRoutes";
 
 export function Footer() {
   const { name, logoUrl } = useCompany();
@@ -33,11 +34,11 @@ export function Footer() {
               <Item>
                 <FaLink size={16} /> item 03
               </Item>
-              <Item>
-                <FaLink size={16} /> item 04
+              <Item link={AppRoutes.TERMS_OF_USE}>
+                <FaLink size={16} /> Termos de uso
               </Item>
-              <Item>
-                <FaLink size={16} /> item 05
+              <Item link={AppRoutes.POLICY_PRIVACY}>
+                <FaLink size={16} /> Política de privacidade
               </Item>
             </div>
             <div className="flex flex-col">
@@ -66,9 +67,15 @@ export function Footer() {
   );
 }
 
-function Item({ children }: { children: ReactNode }) {
+function Item({
+  link = "#",
+  children,
+}: {
+  link?: string;
+  children: ReactNode;
+}) {
   return (
-    <Link to={"#"}>
+    <Link to={link}>
       <li className="flex items-center gap-2 hover:text-primary">{children}</li>
     </Link>
   );
