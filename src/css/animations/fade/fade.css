@@ -1,0 +1,26 @@
+.fadeIn {
+  animation: fadeIn var(--ds-animation-time) ease-in-out;
+  opacity: 1;
+}
+.fadeOut {
+  animation: fadeOut var(--ds-animation-time) ease-in-out;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

@@ -26,7 +26,7 @@ export function Testimony() {
     text.length < size ? text : `${text.slice(0, size)}...`;
 
   return (
-    <div className="w-full flex justify-center">
+    <div className="w-full flex justify-center fadeInLeft">
       <div className="w-full max-w-screen-cut flex flex-col items-center gap-10 px-4 md:px-6">
         <h1 className="text-3xl font-bold">
           A opinião de quem já <u>aprendeu programação com o {name}</u>

@@ -1,10 +1,9 @@
 import { ReactNode, useEffect, useState } from "react";
-import { LocalStorageKeys } from "../../constants/LocalstorageKeys";
+import { AppRoutes } from "../../constants/AppRoutes";
 import { UserContext, iAuth, iUser } from "../../context/User";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
-import { getLogin } from "../../services/Login";
-import { AppRoutes } from "../../constants/AppRoutes";
 import { UserMoked } from "../../moked/user";
+import { getLogin } from "../../services/Login";
 
 interface iData {
   user: iUser;
@@ -14,7 +13,7 @@ interface iData {
 export function UserProvider({ children }: { children: ReactNode }) {
   const { setLS, getLS, removeLS } = useLocalStorage();
 
-  const auth: iData | null = getLS(LocalStorageKeys.AUTH);
+  const auth: iData | null = getLS("AUTH");
 
   const [data, setData] = useState<iData | null>(auth);
 
@@ -24,10 +23,10 @@ export function UserProvider({ children }: { children: ReactNode }) {
         setData(auth);
       } else {
         console.error("User not logged");
-        // location.href = AppRoutes.HOME;
+        location.href = AppRoutes.SIGN_IN;
       }
     } else {
-      setLS(LocalStorageKeys.AUTH, data);
+      setLS("AUTH", data);
     }
   }, [auth, data, setLS]);
 
@@ -48,7 +47,7 @@ export function UserProvider({ children }: { children: ReactNode }) {
 
   function logoff() {
     setData(null);
-    removeLS(LocalStorageKeys.AUTH);
+    removeLS("AUTH");
     location.href = AppRoutes.HOME;
   }
 

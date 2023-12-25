@@ -1,0 +1,32 @@
+.slideInUp {
+  transition: all;
+  animation: slideInUp var(--ds-animation-time) ease-in-out;
+  transform: translateY(0px);
+}
+.slideOutUp {
+  transition: all;
+  animation: slideOutDown var(--ds-animation-time) ease-in-out;
+  transform: translateY(100vh);
+}
+
+@keyframes slideInUp {
+  0% {
+    transform: translateY(-100vh);
+    -webkit-transform: translateY(-100vh);
+  }
+  100% {
+    transform: translateY(0px);
+    -webkit-transform: translateY(0px);
+  }
+}
+
+@keyframes slideOutDown {
+  0% {
+    transform: translateY(0px);
+    -webkit-transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-100vh);
+    -webkit-transform: translateY(-100vh);
+  }
+}

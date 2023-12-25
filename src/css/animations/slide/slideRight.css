@@ -1,0 +1,28 @@
+.slideInRight {
+  animation: slideInRight var(--ds-animation-time) ease-in-out;
+}
+.slideOutRight {
+  animation: slideOutRight var(--ds-animation-time) ease-in-out;
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100vw);
+    -webkit-transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+  }
+}
+
+@keyframes slideOutRight {
+  0% {
+    transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(100vw);
+    -webkit-transform: translateX(100vw);
+  }
+}

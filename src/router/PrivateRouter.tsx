@@ -1,13 +1,14 @@
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { AppRoutes } from "../constants/AppRoutes";
 // import { NotFound } from "../pages/404";
 import { ClassPage } from "../pages/Class";
+import { CertificatePage } from "../pages/Class/pages/Certificate";
+import { CertificatesPage } from "../pages/Class/pages/Certificates";
 import { CoursePage } from "../pages/Class/pages/Course";
 import { CoursesPage } from "../pages/Class/pages/Courses";
 import { DashboardPage } from "../pages/Class/pages/Dashboard";
 import { ProfilePage } from "../pages/Class/pages/Profile";
-import { CertificatesPage } from "../pages/Class/pages/Certificates";
-import { CertificatePage } from "../pages/Class/pages/Certificate";
+import { FinancesPage } from "../pages/Class/pages/Finances";
 
 export function PrivateRouter() {
   return (
@@ -29,6 +30,7 @@ export function PrivateRouter() {
         <Route path={AppRoutes.CLASS_COURSES} element={<CoursesPage />} />
         <Route path={AppRoutes.CLASS_COURSE} element={<CoursePage />} />
         <Route path={AppRoutes.CLASS_PROFILE} element={<ProfilePage />} />
+        <Route path={AppRoutes.CLASS_FINANCES} element={<FinancesPage />} />
 
         <Route path="*" element={<Navigate to={AppRoutes.CLASS_DASHBOARD} />} />
       </Route>

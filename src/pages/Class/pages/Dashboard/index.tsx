@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useRef } from "react";
 import { Section } from "../../../../components/Section";
 import { courseStatisticMoked } from "../../../../moked/courses";
+import { KanbamBoard } from "./KanbamBoard";
 
 export function DashboardPage() {
   const ref = useRef<HTMLDivElement>(null);
@@ -42,6 +43,8 @@ export function DashboardPage() {
           <div ref={ref} className="w-full h-full"></div>
         </div>
       </div>
+
+      <KanbamBoard />
     </Section>
   );
 }

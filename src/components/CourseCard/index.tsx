@@ -26,14 +26,16 @@ export function CourseCard({
         .replace(":moduleSlug", moduleSlug)
         .replace(":lessonSlug", lessonSlug)}
     >
-      <div className="group max-w-[300px] overflow-hidden shadow-xl rounded-xl border hover:border-primary/10 bg-white">
+      <div className="group max-w-[300px] overflow-hidden shadow-xl rounded-xl border hover:border-primary/10 bg-white fadeIn ">
         <div className="w-full h-[200px]">
           <img loading="lazy" src={image} alt="" className="" />
         </div>
 
-        <div className="px-2 py-4">
-          <h1 className="text-2xl font-bold">{title}</h1>
+        <div className="glex flex-col gap-2 px-2 py-4">
+          <h1 className="text-xl font-bold h-10">{title}</h1>
+
           <p className="text-sm">{description}</p>
+
           <div className="h-10 flex items-center  group-hover:text-primary">
             {progress >= 95 ? (
               <div className="flex items-center gap-2 text-sm font-bold">

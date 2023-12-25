@@ -1,0 +1,32 @@
+.slideInLeft {
+  transition: all;
+  animation: slideInLeft var(--ds-animation-time) ease-in-out;
+}
+.slideOutLeft {
+  transition: all;
+  animation: slideOutLeft var(--ds-animation-time) ease-in-out;
+  transform: translateX(-100vw);
+  -webkit-transform: translateX(-100vw);
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100vw);
+    -webkit-transform: translateX(-100vw);
+  }
+  100% {
+    transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+  }
+}
+
+@keyframes slideOutLeft {
+  0% {
+    transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(-100vw);
+    -webkit-transform: translateX(-100vw);
+  }
+}

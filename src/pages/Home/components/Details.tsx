@@ -46,7 +46,7 @@ export function Details() {
   ];
 
   return (
-    <div className="w-full flex justify-center">
+    <div className="w-full flex justify-center slideInLeft">
       <div className="w-full max-w-screen-cut flex flex-wrap justify-center gap-10 py-10 px-4 md:px-6">
         {data.map((item) => (
           <div

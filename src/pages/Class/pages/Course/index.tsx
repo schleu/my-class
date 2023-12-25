@@ -7,14 +7,19 @@ import { iCourse, iLesson, iModule } from "../../../../types";
 import { coursesMoked } from "../../../../moked/courses";
 import { LateralModules } from "./LateralModules";
 import { MenuLesson } from "./MenuLesson";
+import { useLocalStorage } from "../../../../hooks/useLocalStorage";
 
 export function CoursePage() {
-  const [full, setFull] = useState(false);
+  const { setLS, getLS } = useLocalStorage();
+  const { courseFullScreen } = getLS("CONFIG");
+
+  const [fullScreen, setFullScreen] = useState<boolean>(
+    courseFullScreen || false
+  );
   const [course, setCourse] = useState<iCourse>();
   const [module, setModule] = useState<iModule>();
   const [lesson, setLesson] = useState<iLesson>();
   const { courseSlug, moduleSlug, lessonSlug } = useParams();
-
   const navigate = useNavigate();
 
   if (
@@ -40,6 +45,11 @@ export function CoursePage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [courseSlug, moduleSlug, lessonSlug]);
 
+  function handleFull() {
+    setFullScreen((e) => !e);
+    setLS("CONFIG", { courseFullScreen: !fullScreen });
+  }
+
   return (
     <Section title={`${course?.name}`}>
       <div className="flex gap-4">
@@ -55,11 +65,11 @@ export function CoursePage() {
 
             <div
               className={`absolute top-4 right-4 cursor-pointer z-50 hover:text-white transition ${
-                full ? "bg-light-200/20" : ""
+                fullScreen ? "bg-light-200/20" : ""
               } rounded hidden md:flex`}
-              onClick={() => setFull((e) => !e)}
+              onClick={handleFull}
             >
-              {full ? (
+              {fullScreen ? (
                 <MdFullscreen size={24} />
               ) : (
                 <MdFullscreenExit size={24} />
@@ -75,13 +85,13 @@ export function CoursePage() {
               course={course}
               module={module}
               lesson={lesson}
-              full={full}
+              full={fullScreen}
             />
           )}
         </div>
 
         <div className="hidden md:block">
-          {course && <LateralModules course={course} full={full} />}
+          {course && <LateralModules course={course} full={fullScreen} />}
         </div>
       </div>
     </Section>

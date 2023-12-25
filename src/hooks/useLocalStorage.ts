@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { LocalStorageKeys } from "../constants/LocalstorageKeys";
+import { iLocalStorageKeys } from "../constants/LocalstorageKeys";
 
-export function useLocalStorage() {
-  function getLS(key: LocalStorageKeys) {
+export function useLocalStorage(keyLS: iLocalStorageKeys) {
+  function getLS(key: iLocalStorageKeys = keyLS) {
     const ls = localStorage.getItem(key);
 
     if (ls === null) {
@@ -12,11 +12,11 @@ export function useLocalStorage() {
     return JSON.parse(ls);
   }
 
-  function setLS(key: LocalStorageKeys, object: any) {
+  function setLS(key: iLocalStorageKeys, object: any) {
     localStorage.setItem(key, JSON.stringify(object));
   }
 
-  function removeLS(key: LocalStorageKeys) {
+  function removeLS(key: iLocalStorageKeys) {
     localStorage.removeItem(key);
   }
 

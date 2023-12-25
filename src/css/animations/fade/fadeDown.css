@@ -1,0 +1,36 @@
+.fadeInDown {
+  transition: all;
+  animation: fadeInDown var(--ds-animation-time) ease-in-out;
+  opacity: 1;
+}
+.fadeOutDown {
+  transition: all;
+  animation: fadeOutDown var(--ds-animation-time) ease-in-out;
+  opacity: 0;
+}
+
+@keyframes fadeInDown {
+  0% {
+    transform: translateY(var(--ds-animation-size));
+    -webkit-transform: translateY(var(--ds-animation-size));
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    -webkit-transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutDown {
+  0% {
+    transform: translateY(0px);
+    -webkit-transform: translateY(0px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(var(--ds-animation-size));
+    -webkit-transform: translateY(var(--ds-animation-size));
+    opacity: 0;
+  }
+}

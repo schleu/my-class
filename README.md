@@ -1,24 +1,82 @@
 # My Class
 
-[![https://myclass-danilo-schleu.netlify.app/](public/image.png)](<https://myclass-danilo-schleu.netlify.app/>)
+[![https://myclass-danilo-schleu.netlify.app/](public/readme/landingPage.png)](<https://myclass-danilo-schleu.netlify.app/>)
 [Clique na imagem para acessar o sistema](<https://myclass-danilo-schleu.netlify.app/>)
 
 ## Objetivo
 
 O objetivo deste projeto é desenvolver um sistema de aula online sob demanda que permita aos professores disponibilizarem aulas de forma mais eficiente e interativa, e aos alunos aprender de forma mais eficaz.
 
-## Implementações
+## Paginas
 
-- [x] Landing Page
-- [x] Login Page
-- [x] Dashboard Page [básica]
-- [x] Perfil Page
-- [x] Meus Cursos Page
-- [x] Visualizar aula
-- [x] Descrição das aulas
-- [x] Area do Certificado
-- [x] Gerador de certificado
-- [x] Avalialçao das aulas
+  <details>
+    <summary>Landing Page</summary>
+    <a href="https://myclass-danilo-schleu.netlify.app">
+      <figure>
+        <img src="public/readme/landingPage.png" width="500">
+      </figure>
+    </a>
+  </details>
+
+  <details>
+    <summary>Login</summary>
+    <a href="https://myclass-danilo-schleu.netlify.app/class/signIn">
+      <figure>
+        <img src="public/readme/signIn.png" width="500">
+      </figure>
+    </a>
+  </details>
+
+  <details>
+    <summary>Cadastrar</summary>
+    <a href="https://myclass-danilo-schleu.netlify.app/class/signUp">
+      <figure>
+        <img src="public/readme/signUp.png" width="500">
+      </figure>
+    </a>
+  </details>
+
+  <details>
+    <summary>Dashboard</summary>
+    <a href="https://myclass-danilo-schleu.netlify.app/class/dashboard">
+      <figure>
+        <img src="public/readme/dashboard.png" width="500">
+      </figure>
+      </a>
+  </details>
+
+  <details>
+    <summary>Cursos</summary>
+    <a href="https://myclass-danilo-schleu.netlify.app/class/courses">
+      <figure>
+        <img src="public/readme/courses.png" width="500">
+      </figure>
+      </a>
+  </details>
+
+  <details>
+    <summary>Certificados</summary>
+    <a href="https://myclass-danilo-schleu.netlify.app/class/cerificates">
+      <figure>
+        <img src="public/readme/certificates.png" width="500">
+      </figure>
+      <figure>
+        <img src="public/readme/certificates1.png" width="500">
+      </figure>
+      </a>
+  </details>
+
+  <details>
+    <summary>Perfil</summary>
+    <a href="https://myclass-danilo-schleu.netlify.app/class/profile">
+      <figure>
+        <img src="public/readme/profile.png" width="500">
+      </figure>
+      </a>
+  </details>
+
+## Implementações futuras
+
 - [ ] Editar dados perfil [salvar no localstorage]
 - [ ] DarkMode
 - [ ] Multi idiomas [i18n]

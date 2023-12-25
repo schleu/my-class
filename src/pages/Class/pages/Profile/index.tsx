@@ -4,9 +4,9 @@ import { toFormikValidationSchema } from "zod-formik-adapter";
 
 import { Text } from "../../../../components/Input/Text";
 import { Section } from "../../../../components/Section";
-import { ModalProfile } from "./Modal";
 import { Button } from "../../../../components/Button";
 import { useLogin } from "../../../../hooks/useLogin";
+import { ModalForm } from "../../components/ModalForm";
 
 export function ProfilePage() {
   const { user } = useLogin();
@@ -54,7 +54,7 @@ export function ProfilePage() {
         onSubmit={formik.handleSubmit}
         className="w-full max-w-[1000px] flex flex-col gap-10"
       >
-        <ModalProfile title="Dados Pessoais">
+        <ModalForm title="Dados Pessoais">
           <div className="w-full flex flex-wrap md:flex-nowrap gap-10">
             <Text
               name="firstName"
@@ -84,10 +84,11 @@ export function ProfilePage() {
             onChange={formik.handleChange}
             value={formik.values.phone}
             error={formik.errors.phone}
+            mask={"(99) 99999-9999"}
           />
-        </ModalProfile>
+        </ModalForm>
 
-        <ModalProfile title="Endereço">
+        <ModalForm title="Endereço">
           <Text
             name="street"
             label="Rua"
@@ -102,6 +103,7 @@ export function ProfilePage() {
               onChange={formik.handleChange}
               value={formik.values.postcode}
               error={formik.errors.postcode}
+              mask={"99999-9999"}
             />
             <Text
               name="city"
@@ -134,7 +136,7 @@ export function ProfilePage() {
               error={formik.errors.country}
             />
           </div>
-        </ModalProfile>
+        </ModalForm>
 
         <Button type="submit">Salvar</Button>
       </form>

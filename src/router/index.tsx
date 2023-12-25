@@ -1,12 +1,12 @@
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { AppRoutes } from "../constants/AppRoutes";
 import { Home } from "../pages/Home";
-import { SignInPage } from "../pages/SignIn";
-import { UserProvider } from "../provider/UserProvider";
-import { SignUpPage } from "../pages/SignUp";
 import { PrivacyPolicyPage } from "../pages/PolicePrivacity";
-import { TermsOfUsePage } from "../pages/TermsOfUse";
+import { SignInPage } from "../pages/SignIn";
 import { SignOutPage } from "../pages/SignOut";
+import { SignUpPage } from "../pages/SignUp";
+import { TermsOfUsePage } from "../pages/TermsOfUse";
+import { UserProvider } from "../provider/UserProvider";
 
 export function Router() {
   return (
@@ -23,9 +23,16 @@ export function Router() {
         }
       />
       <Route path={AppRoutes.SIGN_UP} element={<SignUpPage />} />
-      <Route path={AppRoutes.SIGN_OUT} element={<SignOutPage />} />
-      <Route path={"login"} element={<Navigate to={AppRoutes.SIGN_IN} />} />
-      <Route path={"logoff"} element={<Navigate to={AppRoutes.SIGN_OUT} />} />
+      <Route
+        path={AppRoutes.SIGN_OUT}
+        element={
+          <UserProvider>
+            <SignOutPage />
+          </UserProvider>
+        }
+      />
+      <Route path={"/login"} element={<Navigate to={AppRoutes.SIGN_IN} />} />
+      <Route path={"/logoff"} element={<Navigate to={AppRoutes.SIGN_OUT} />} />
     </Routes>
   );
 }

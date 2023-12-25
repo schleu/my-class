@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-import { FaLink } from "react-icons/fa";
+import { FaGithub, FaLink, FaLinkedinIn, FaSitemap } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
 import { useCompany } from "../../../hooks/useCompany";
@@ -10,7 +10,7 @@ export function Footer() {
   const { name, logoUrl } = useCompany();
 
   return (
-    <footer className="w-full flex justify-center border-light-200/50 border-t mt-auto">
+    <footer className="w-full flex justify-center border-light-200/50 border-t mt-auto slideInDown">
       <div className="w-full max-w-screen-cut flex flex-col px-4 md:px-6">
         <div className="w-full flex flex-wrap  justify-between pt-20 pb-10">
           <div className="order-1 md:order-0">
@@ -61,7 +61,24 @@ export function Footer() {
             </div>
           </div>
         </div>
-        <div className="w-full flex justify-between py-4 border-light-200/20 border-t"></div>
+        <div className="w-full flex  gap-4 py-4 border-light-200/20 border-t">
+          Desenvolvido por Danilo Schleu
+          <Link
+            to="https://portfolio-danilo-schleu.netlify.app/"
+            title="Portfólio"
+          >
+            <FaSitemap size={18} />
+          </Link>
+          <Link to="https://github.com/schleu" title="Github">
+            <FaGithub size={18} />
+          </Link>
+          <Link
+            to="https://www.linkedin.com/in/danilo-schleu/"
+            title="Linkedin"
+          >
+            <FaLinkedinIn size={18} />
+          </Link>
+        </div>
       </div>
     </footer>
   );

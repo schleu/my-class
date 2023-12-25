@@ -1,0 +1,26 @@
+.blurIn {
+  animation: blurIn var(--ds-animation-time) ease-in-out;
+  filter: blur(0px);
+}
+.blurOut {
+  animation: blurOut var(--ds-animation-time) ease-in-out;
+  filter: blur(4px);
+}
+
+@keyframes blurIn {
+  0% {
+    filter: blur(4px);
+  }
+  100% {
+    filter: blur(0px);
+  }
+}
+
+@keyframes blurOut {
+  0% {
+    filter: blur(0px);
+  }
+  100% {
+    filter: blur(4px);
+  }
+}

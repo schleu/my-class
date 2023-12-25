@@ -17,7 +17,7 @@ export const UserMoked: iUser = {
     city: "Wellington",
     state: "Nelson",
     country: "New Zealand",
-    postcode: 56612,
+    postcode: 56612123,
   },
 };
 
