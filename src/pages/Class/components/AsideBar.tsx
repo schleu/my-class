@@ -1,9 +1,11 @@
 import { FaChevronLeft } from "react-icons/fa";
-import { RiLogoutBoxLine } from "react-icons/ri";
+import { RiLogoutBoxLine, RiMoonLine, RiSunLine } from "react-icons/ri";
 
 import { AppRoutes } from "../../../constants/AppRoutes";
-import { MenuOption } from "./MenuOption";
 import { optionsMenu } from "../../../constants/MenuOptions";
+
+import { useTheme } from "../../../provider/ThemeProvider";
+import { MenuOption } from "./MenuOption";
 
 interface Props {
   hide?: boolean;
@@ -11,9 +13,10 @@ interface Props {
 }
 
 export function AsideBar({ hide, toogleHide }: Props) {
+  const { theme, toogleTheme } = useTheme();
   return (
     <div
-      className={`hidden md:flex fixed top-0 z-40 pt-24 transition max-h-screen h-full bg-light-100 shadow-xl flex-col ${
+      className={`hidden md:flex fixed top-0 z-40 pt-24 max-h-screen h-full bg-light-100 dark:bg-dark-100 shadow-xl flex-col text-light-800 dark:text-dark-800 ${
         hide ? "w-20" : "w-52"
       }`}
     >
@@ -23,11 +26,9 @@ export function AsideBar({ hide, toogleHide }: Props) {
         }`}
         onClick={toogleHide}
       >
-        <FaChevronLeft
-          size={18}
-          className={`transition ${hide ? "" : "rotate-180"}`}
-        />
+        <FaChevronLeft size={18} className={`${hide ? "" : "rotate-180"}`} />
       </div>
+
       {optionsMenu.map((opt) => (
         <MenuOption
           key={opt.link}
@@ -37,7 +38,14 @@ export function AsideBar({ hide, toogleHide }: Props) {
           full={!hide}
         />
       ))}
+
       <div className="flex-1" />
+      <MenuOption
+        title={theme === "light" ? "Dark mode" : "Light mode"}
+        Icon={theme === "light" ? RiMoonLine : RiSunLine}
+        full={!hide}
+        callback={toogleTheme}
+      />
       <MenuOption
         title="Sair"
         Icon={RiLogoutBoxLine}

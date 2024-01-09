@@ -14,7 +14,7 @@ export function ClassPage() {
         <div className="mx-auto max-w-screen-cut">
           <AsideBar hide={hide} toogleHide={() => setHide((e) => !e)} />
           <div
-            className={`transition pt-20 bg-light-100 min-h-screen shadow-md ${
+            className={`pt-20 bg-light-100 dark:bg-dark-100 min-h-screen shadow-md text-light-800 dark:text-dark-800 ${
               hide ? "md:pl-20" : "md:pl-52"
             }`}
           >

@@ -11,7 +11,7 @@ interface iData {
 }
 
 export function UserProvider({ children }: { children: ReactNode }) {
-  const { setLS, getLS, removeLS } = useLocalStorage();
+  const { setLS, getLS, removeLS } = useLocalStorage("AUTH");
 
   const auth: iData | null = getLS("AUTH");
 

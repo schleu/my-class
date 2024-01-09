@@ -175,7 +175,7 @@ export function Password({
         </div>
 
         <div
-          className={`cursor-pointer absolute right-4 bottom-3 transition ${
+          className={`cursor-pointer absolute right-4 bottom-3 ${
             showSegurity ? "" : "hidden"
           }`}
           onClick={toogleSegurity}
@@ -188,7 +188,7 @@ export function Password({
       <p className="text-danger text-xs px-2 h-4">{error}</p>
 
       <div
-        className={`bg-light-100 text-light-900 text-xs w-full rounded-md shadow-md transition
+        className={`bg-light-100 text-light-900 text-xs w-full rounded-md shadow-md
          ${
            segurity
              ? "p-4 border max-w-[270px] border-primary/20"

@@ -8,6 +8,12 @@ body {
 html {
   scroll-behavior: smooth;
 }
+*{
+  transition: all ease-in-out!important;
+  transition-duration: 600ms!important;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1)!important;
+  
+}
 
 /* width */
 ::-webkit-scrollbar {

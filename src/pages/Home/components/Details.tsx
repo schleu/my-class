@@ -51,7 +51,7 @@ export function Details() {
         {data.map((item) => (
           <div
             key={item.title}
-            className="max-w-[350px] flex items-center flex-col gap-5 text-center transition hover:-translate-y-5"
+            className="max-w-[350px] flex items-center flex-col gap-5 text-center hover:-translate-y-5"
           >
             <span className="w-20 text-primary brightness-75">{item.icon}</span>
             <h1 className="font-bold text-xl">{item.title}</h1>

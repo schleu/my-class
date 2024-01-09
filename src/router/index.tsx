@@ -11,7 +11,7 @@ import { UserProvider } from "../provider/UserProvider";
 export function Router() {
   return (
     <Routes>
-      <Route path={AppRoutes.HOME} Component={Home} />
+      <Route path={AppRoutes.HOME} element={<Home />} />
       <Route path={AppRoutes.POLICY_PRIVACY} element={<PrivacyPolicyPage />} />
       <Route path={AppRoutes.TERMS_OF_USE} element={<TermsOfUsePage />} />
       <Route

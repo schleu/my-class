@@ -31,7 +31,7 @@ export function CoursesPage() {
         </h1>
 
         <div
-          className={`flex flex-col gap-2 transition-all ease-in-out duration-700 origin-top h-fit ${
+          className={`flex flex-col gap-2 duration-700 origin-top h-fit ${
             hide ? "scale-y-0 overflow-hidden" : "scale-y-100"
           }`}
         >

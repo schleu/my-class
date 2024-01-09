@@ -16,7 +16,7 @@ export function MenuModule({ module, hide, handleMenu }: Props) {
   const { courseSlug, lessonSlug } = useParams();
 
   return (
-    <div className="transition h-fit">
+    <div className="h-fit">
       <div
         className="w-full flex justify-between items-center cursor-pointer border-light-200 border-2 py-2 px-4 rounded-md"
         onClick={handleMenu}
@@ -31,12 +31,12 @@ export function MenuModule({ module, hide, handleMenu }: Props) {
         </div>
         <MdChevronRight
           size={32}
-          className={`transition ${hide ? "rotate-90" : "-rotate-90"}`}
+          className={`${hide ? "rotate-90" : "-rotate-90"}`}
         />
       </div>
 
       <div
-        className={`transition relative overflow-hidden h-full pl-4 ${
+        className={`relative overflow-hidden h-full pl-4 ${
           hide ? "max-h-0" : "max-h-full"
         }`}
       >

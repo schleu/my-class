@@ -10,7 +10,7 @@ import { MenuLesson } from "./MenuLesson";
 import { useLocalStorage } from "../../../../hooks/useLocalStorage";
 
 export function CoursePage() {
-  const { setLS, getLS } = useLocalStorage();
+  const { setLS, getLS } = useLocalStorage("CONFIG");
   const { courseFullScreen } = getLS("CONFIG");
 
   const [fullScreen, setFullScreen] = useState<boolean>(
@@ -53,8 +53,8 @@ export function CoursePage() {
   return (
     <Section title={`${course?.name}`}>
       <div className="flex gap-4">
-        <div className={`w-full flex flex-col gap-4 transition`}>
-          <div className="w-full max-h-[240px] md:max-h-[600px] h-screen flex justify-center items-center bg-light-200/20 rounded-2xl relative transition">
+        <div className={`w-full flex flex-col gap-4`}>
+          <div className="w-full max-h-[240px] md:max-h-[600px] h-screen flex justify-center items-center bg-light-200/20 rounded-2xl relative">
             <div className="w-full h-full rounded-2xl overflow-hidden">
               {lesson !== undefined ? (
                 <VideoPlayer video_id={Number(lesson.urlVideo || "")} />
@@ -64,7 +64,7 @@ export function CoursePage() {
             </div>
 
             <div
-              className={`absolute top-4 right-4 cursor-pointer z-50 hover:text-white transition ${
+              className={`absolute top-4 right-4 cursor-pointer z-50 hover:text-white ${
                 fullScreen ? "bg-light-200/20" : ""
               } rounded hidden md:flex`}
               onClick={handleFull}

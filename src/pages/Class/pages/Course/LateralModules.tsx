@@ -15,7 +15,7 @@ export function LateralModules({ full = false, course }: Props) {
   }
   return (
     <div
-      className={`flex transition flex-col gap-4 ${
+      className={`flex flex-col gap-4 ${
         full ? "w-0 overflow-hidden " : "w-full md:w-96"
       }`}
     >

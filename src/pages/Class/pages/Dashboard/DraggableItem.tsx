@@ -13,7 +13,7 @@ export function DraggableItem({ ...props }: iDraggableItem) {
       draggable="true"
       {...props}
       onDragStart={dragStart}
-      className={`w-full bg-light-100 cursor-grab rounded-md transition overflow-hidden hover:scale-110 my-4
+      className={`w-full bg-light-100 cursor-grab rounded-md overflow-hidden hover:scale-110 my-4
       ${props.className}`}
     >
       {props.children}

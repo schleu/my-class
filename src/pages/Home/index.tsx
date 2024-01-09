@@ -6,7 +6,7 @@ import { Testimony } from "./components/Testimony";
 
 export function Home() {
   return (
-    <div className="w-full flex flex-col gap-20 bg-light-100">
+    <div className="w-full flex flex-col gap-20 bg-light-100 dark:bg-dark-100">
       <Header />
       <Hero />
       <Details />

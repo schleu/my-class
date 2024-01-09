@@ -40,7 +40,7 @@ export function MenuLesson({ course, module, full = false }: Props) {
         {menusKeys.map((item) => (
           <li
             key={item}
-            className={`w-full h-10 font-bold border-2 items-center justify-center transition cursor-pointer border-primary rounded-md 
+            className={`w-full h-10 font-bold border-2 items-center justify-center cursor-pointer border-primary rounded-md 
               
             ${!full && item === "CLASS" ? "flex md:hidden" : "flex"}
             ${
@@ -57,7 +57,7 @@ export function MenuLesson({ course, module, full = false }: Props) {
 
       <div className="w-full min-h-[300px] flex flex-nowrap overflow-hidden ">
         <div
-          className={`w-full h-full  flex-col gap-4 transition  ${
+          className={`w-full h-full  flex-col gap-4 ${
             actual === "DESCRITION" ? "animate-slideIn flex" : "hidden"
           } `}
         >
@@ -73,7 +73,7 @@ export function MenuLesson({ course, module, full = false }: Props) {
         </div>
 
         <div
-          className={`w-full h-full  flex-1 flex-col gap-4 transition ${
+          className={`w-full h-full  flex-1 flex-col gap-4 ${
             full ? "flex" : "flex md:hidden"
           }  ${actual === "CLASS" ? "animate-slideIn flex" : "hidden"} `}
         >
@@ -81,7 +81,7 @@ export function MenuLesson({ course, module, full = false }: Props) {
         </div>
 
         <div
-          className={`w-full h-full  flex-1 flex-col gap-4 transition ${
+          className={`w-full h-full  flex-1 flex-col gap-4 ${
             actual === "RATING" ? "animate-slideIn flex" : "hidden"
           } `}
         >

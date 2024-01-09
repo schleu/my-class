@@ -5,7 +5,7 @@ interface Props {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   Icon: any;
   full?: boolean;
-  link: string;
+  link?: string;
   callback?: () => void;
 }
 
@@ -16,17 +16,17 @@ export function MenuOption({
   link,
   callback = () => {},
 }: Props) {
-  return (
-    <Link to={link} onClick={callback}>
-      <div
-        className={`group relative w-full flex items-center gap-4 md:gap-2 py-4 bg-light-100 hover:brightness-110 text-light-800 md:text-light-300 hover:text-light-800 cursor-pointer transition font-bold ${
-          full ? "px-2 md:px-4 justify-start" : "justify-center"
-        }`}
-      >
-        <Icon className="w-8 md:w-5 h-8 md:h-5" />
+  const Menu = () => (
+    <div
+      onClick={callback}
+      className={`group relative w-full flex items-center gap-4 md:gap-2 py-4 hover:brightness-50  dark:hover:brightness-110 text-light-800 dark:text-dark-800 md:text-light-300 hover:text-light-800 cursor-pointer font-bold ${
+        full ? "px-2 md:px-4 justify-start" : "justify-center"
+      }`}
+    >
+      <Icon className="w-8 md:w-5 h-8 md:h-5" />
 
-        <p
-          className={`
+      <p
+        className={`
             text-xl md:text-base
           ${
             full
@@ -36,10 +36,17 @@ export function MenuOption({
                   before:content-[''] before:w-3 before:h-3 before:absolute before:top-1/2 before:-translate-y-1/2 
                   before:left-0 before:-translate-x-1/2 before:rotate-45 before:bg-light-200 before:shadow-2xl `
           }`}
-        >
-          {title}
-        </p>
-      </div>
+      >
+        {title}
+      </p>
+    </div>
+  );
+
+  return link ? (
+    <Link to={link}>
+      <Menu />
     </Link>
+  ) : (
+    <Menu />
   );
 }
